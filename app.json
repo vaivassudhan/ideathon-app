@@ -1,0 +1,12 @@
+{
+  "name": "Ideathon_App",
+  "displayName": "Ideathon_App",
+  "expo": {
+    "name": "Ideathon_App",
+    "slug": "Ideathon_App",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
