@@ -2,14 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Demo from './Screens/Demo'
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { DarkTheme, DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 const theme = {
-  ...DefaultTheme,
+  ...DarkTheme,
   roundness: 2,
   colors: {
-    ...DefaultTheme.colors,
-    primary: '#939393',
-    accent: '#f1c40',
+    ...DarkTheme.colors,
+    primary: 'rgb(223,98,51)',
+    accent: 'rgb(220,75,99)',
   },
 };
 
