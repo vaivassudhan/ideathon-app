@@ -3,14 +3,15 @@ import React from 'react';
 import { StyleSheet, View, Image,SafeAreaView, TextInput } from 'react-native';
 import { Badge } from 'react-native-paper';
 import { Button } from 'react-native-paper';
-import {Text} from 'react-native-paper'
-export default function Demo() {
+import {Text,useTheme} from 'react-native-paper'
+export default function Demo(props) {
+  const { colors } = useTheme();
 
   return (
     <SafeAreaView style={styles.container}>
     <View >
       <StatusBar style="auto" />
-      <Text style={{color:"white", fontSize:32}} >Server monks</Text>
+      <Text style={{color: colors.primary, fontSize:32}} >Server monks</Text>
       <View style={{paddingTop:24}}>
 
       <Button  icon="camera" mode="contained" onPress={() => console.log('Pressed')}>
