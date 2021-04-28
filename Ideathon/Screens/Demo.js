@@ -1,18 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View,Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { Badge } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 
 export default function Demo() {
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
-      <Button title="click"></Button>
+      <Button mode="contained">
+        Press me
+      </Button>
       <Image
         style={styles.logo}
         source={{
         }}
       />
+
+      <Badge>3</Badge>
     </View>
   );
 }
