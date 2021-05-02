@@ -2158,3 +2158,4 @@ node_modules/react-native-paper/src/utils/useAnimatedValue.tsx
 node_modules/react-native-paper/src/utils/useAnimatedValueArray.tsx
 node_modules/react-native-paper/src/utils/useLayout.tsx
 node_modules/react-native-paper/src/utils/useLazyRef.tsx
+node_modules
