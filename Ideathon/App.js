@@ -1,25 +1,75 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Demo from './Screens/Demo'
-import { DarkTheme, DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-const theme = {
-  ...DarkTheme,
-  roundness: 2,
-  colors: {
-    ...DarkTheme.colors,
-    primary: 'rgb(223,98,51)',
-    accent: 'rgb(220,75,99)',
-  },
-};
 
-export default function App() {
+import React, { useEffect } from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { StyleSheet, Text, View ,Button , ActivityIndicator} from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer, DefaultTheme as NavigationDefaultTheme,
+  DarkTheme as NavigationDarkTheme } from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
+import { 
+  Provider as PaperProvider, 
+  DefaultTheme as PaperDefaultTheme,
+  DarkTheme as PaperDarkTheme 
+} from 'react-native-paper';
+
+import RootStackScreen from './Components/Navigation/RootStackScreen';
+
+
+const Stack = createStackNavigator();
+
+const Drawer = createDrawerNavigator();
+import { enableScreens } from 'react-native-screens';
+import SplashScreen from './Components/SplashScreen/SplashScreen';
+
+
+const App = () => {
+  enableScreens();
+
+
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+
+  const initialLoginState = {
+    isLoading: true,
+    userName: null,
+    userToken: null,
+  };
+
+  const CustomDefaultTheme = {
+    ...NavigationDefaultTheme,
+    ...PaperDefaultTheme,
+    colors: {
+      ...NavigationDefaultTheme.colors,
+      ...PaperDefaultTheme.colors,
+      background: '#ffffff',
+      text: '#333333'
+    }
+  }
+  
+  const CustomDarkTheme = {
+    ...NavigationDarkTheme,
+    ...PaperDarkTheme,
+    colors: {
+      ...NavigationDarkTheme.colors,
+      ...PaperDarkTheme.colors,
+      background: '#333333',
+      text: '#ffffff'
+    }
+  }
+
+  const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
+
+
   return (
     <PaperProvider theme={theme}>
-      <Demo />
+    <NavigationContainer theme={theme}>
+          <RootStackScreen/>
+    </NavigationContainer>
     </PaperProvider>
+  
   );
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
