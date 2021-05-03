@@ -23,7 +23,6 @@ import * as Notifications from 'expo-notifications'
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import { useTheme } from 'react-native-paper';
-
 const styles = StyleSheet.create({
   buttonCircle: {
     width: 40,
@@ -40,12 +39,12 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
   },
   image: {
-    width: 400,
+    width: 390,
     height: 300,
     // marginVertical: 32,
   },
   text: {
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: 'rgba(34,88,163, 0.8)',
     textAlign: 'center',
   },
   title: {
@@ -57,8 +56,8 @@ const styles = StyleSheet.create({
 const slides = [
     {
       key: 1,
-      title: 'Title 1',
-      text: 'Description.\nSay something cool',
+      title: 'Welcome to CoviCare',
+      text: 'Your Home Quarantine Assistant',
       image: require('../../assets/415.jpg'),
       backgroundColor: 'rgb(184, 228, 255)',
       backgroundColor1: 'rgb(255,255,255)',
@@ -66,18 +65,19 @@ const slides = [
     },
     {
       key: 2,
-      title: 'Title 2',
-      text: 'Other cool stuff',
+      title: 'Symptoms ',
+      text: 'Remedies for your symptoms at one place',
       image: require('../../assets/report.jpg'),
       backgroundColor: 'rgb(250, 250, 250)',
       backgroundColor1: 'rgb(250,250,250)',
     },
     {
       key: 3,
-      title: 'Rocket guy',
-      text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-      image: require('../../assets/bg1.png'),
-      backgroundColor: '#22bcb5',
+      title: 'Report',
+      text: 'Monitor your report anytime',
+      image: require('../../assets/history.jpg'),
+      backgroundColor: 'rgb(255, 255, 255)',
+      backgroundColor1: 'rgb(255,255,255)',
     }
   ];
 
