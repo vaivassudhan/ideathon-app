@@ -20,30 +20,30 @@ const SplashScreen = ({navigation}) => {
 
     return (
       <View style={styles.container}>
-          <StatusBar backgroundColor='#009387' barStyle="light-content"/>
+          <StatusBar backgroundColor='#a6ddff' barStyle="light-content"/>
         <View style={styles.header}>
             <Animatable.Image 
                 animation="bounceIn"
                 duraton="1500"
-            source={require('../../assets/logo.png')}
+            source={require('../../assets/cc.png')}
             style={styles.logo}
             resizeMode="stretch"
             />
         </View>
         <Animatable.View 
             style={[styles.footer, {
-                backgroundColor: colors.background
+                backgroundColor: '#4dade9'
             }]}
             animation="fadeInUpBig"
         >
             <Text style={[styles.title, {
                 color: colors.text
-            }]}>Stay connected with everyone!</Text>
-            <Text style={styles.text}>Sign in with account</Text>
+            }]}>Home Quarantine Assistance</Text>
+            <Text style={styles.text} >for a better tomorrow</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
                 <LinearGradient
-                    colors={['#08d4c4', '#01ab9d']}
+                    colors={['#c53d34', '#c53d34']}
                     style={styles.signIn}
                 >
                     <Text style={styles.textSign}>Get Started</Text>
@@ -68,7 +68,7 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: '#009387'
+    backgroundColor: '#a6ddff'
   },
   header: {
       flex: 2,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold'
   },
   text: {
-      color: 'grey',
+      color: 'white',
       marginTop:5
   },
   button: {
