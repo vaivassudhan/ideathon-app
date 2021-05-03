@@ -43,10 +43,10 @@ const SplashScreen = ({navigation}) => {
             <Text style={styles.text} >for a better tomorrow</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('Slide')}>
-                <Button style={{backgroundColor:'rgb(34,88,163)'}} mode="contained">
+                {/* <Button style={{backgroundColor:'rgb(34,88,163)'}} mode="contained">
                     Get Started
-                </Button>
-                {/* <LinearGradient
+                </Button> */}
+                <LinearGradient
                     colors={['#c53d34', '#c53d34']}
                     style={styles.signIn}
                 >
@@ -56,7 +56,7 @@ const SplashScreen = ({navigation}) => {
                         color="#fff"
                         size={20}
                     />
-                </LinearGradient> */}
+                </LinearGradient>
             </TouchableOpacity>
             </View>
         </Animatable.View>
