@@ -40,12 +40,12 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
   },
   image: {
-    width: 390,
+    width: 400,
     height: 300,
     // marginVertical: 32,
   },
   text: {
-    color: 'rgba(34,88,163, 0.8)',
+    color: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
   },
   title: {
@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
 const slides = [
     {
       key: 1,
-      title: 'Welcome to CoviCare',
-      text: 'Your Home Quarantine Assistant',
+      title: 'Title 1',
+      text: 'Description.\nSay something cool',
       image: require('../../assets/415.jpg'),
       backgroundColor: 'rgb(184, 228, 255)',
       backgroundColor1: 'rgb(255,255,255)',
@@ -66,19 +66,18 @@ const slides = [
     },
     {
       key: 2,
-      title: 'Symptoms ',
-      text: 'Remedies for your symptoms at one place',
+      title: 'Title 2',
+      text: 'Other cool stuff',
       image: require('../../assets/report.jpg'),
       backgroundColor: 'rgb(250, 250, 250)',
       backgroundColor1: 'rgb(250,250,250)',
     },
     {
       key: 3,
-      title: 'Report',
-      text: 'Monitor your report anytime',
-      image: require('../../assets/history.jpg'),
-      backgroundColor: 'rgb(255, 255, 255)',
-      backgroundColor1: 'rgb(255,255,255)',
+      title: 'Rocket guy',
+      text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
+      image: require('../../assets/bg1.png'),
+      backgroundColor: '#22bcb5',
     }
   ];
 
@@ -95,10 +94,10 @@ export class Slide extends Component {
         item.backgroundColor,
         item.backgroundColor1,
       ]} style={[
-        styles.slide]}>
+        styles.slide,]}>
 
       <SafeAreaView style={[
-        styles.slide]}>
+        styles.slide,]}>
         <Image source={item.image} style={styles.image} />
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.text}>{item.text}</Text>
@@ -110,7 +109,7 @@ export class Slide extends Component {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
     // this.setState({ showRealApp: true });
-    this.props.navigaton.navigate('Register')
+    this.props.navigation.navigate('Register')
   }
   render() {
     if (this.state.showRealApp) {
