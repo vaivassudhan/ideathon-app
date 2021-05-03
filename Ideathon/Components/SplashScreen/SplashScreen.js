@@ -33,17 +33,17 @@ const SplashScreen = ({navigation}) => {
         </View>
         <Animatable.View 
             style={[styles.footer, {
-                backgroundColor: '#4dade9'
+                backgroundColor: 'rgb(54,118,203)'
             }]}
             animation="fadeInUpBig"
         >
             <Text style={[styles.title, {
-                color: colors.text
+                color: 'white'
             }]}>Home Quarantine Assistance</Text>
             <Text style={styles.text} >for a better tomorrow</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
-                <Button mode="contained">
+                <Button style={{backgroundColor:'rgb(94,197,146)'}} mode="contained">
                     Get Started
                 </Button>
                 {/* <LinearGradient
@@ -72,7 +72,7 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    backgroundColor: '#a6ddff'
+    // backgroundColor: '#a6ddff'
   },
   header: {
       flex: 2,
