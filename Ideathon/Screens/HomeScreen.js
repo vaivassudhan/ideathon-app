@@ -3,6 +3,7 @@ import {
     View, 
     ScrollView ,
     Text, 
+    Image,
     TouchableOpacity, 
     TextInput,
     Platform,
@@ -11,6 +12,7 @@ import {
     Alert,
     ImageBackground
 } from 'react-native';
+import { Button } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -30,12 +32,18 @@ const styles= StyleSheet.create({
         fontSize:20,
         marginTop:12,
         marginLeft:12,
-
+        fontWeight:"500",
     },
     cardrow:{
         flexDirection:'row',
         marginTop:12,
-        marginLeft:12,
+        marginBottom:28,
+
+    },
+    buttonrow:{
+        flexDirection:'row',
+        marginTop:22,
+        // marginLeft:12,
 
     },
     cardstyle:{
@@ -45,33 +53,25 @@ const styles= StyleSheet.create({
         flexDirection:'row',
       },
       cardtext:{
-        color:'rgb(223,98,51)',
+        color:'rgb(54,118,203)',
         fontSize:22,
         marginTop:12,
-        width:'50%'
       },
-      cardtext2:{
-        color:'rgb(88,178,177)',
-        fontSize:22,
+      buttontext:{
+        color:'rgb(54,118,203)',
+        fontSize:18,
         marginTop:12,
-        width:'50%'
       },
-      cardtext3:{
-        // color:'rgb(56, 130, 241)',
-        color:'rgb(85,177,94)',
-        fontSize:22,
-        marginTop:12,
-        width:'50%'
+
+      fourbuttons:{
+        marginLeft:10,
+        marginRight:10,
       },
-      cardtext4:{
-        color:'#dc4b63',
-        fontSize:22,
-        marginTop:12,
-        width:'50%'
-      },
-      cardvalue:{
-        color:'white',
-        marginTop:12
+      cardbutton:{
+        alignItems:'center',
+          width:'40%',
+          margin:10,
+          justifyContent:'center'
       }
 
 
@@ -88,17 +88,60 @@ export class Home extends Component {
                     Welcome back!!
                 </Text>
                 <View style={styles.cardrow}>
-                <Card style={styles.cardstyle}>
-                    <Card.Content style={{flexDirection:'row'}}>
-                        <Text style={styles.cardtext2}>Fuel Level  </Text>
-                        <Title style={styles.cardvalue}>8</Title>
-                        <Paragraph  style={{marginTop:20}}> L</Paragraph>
-                    </Card.Content>
-                    <Card.Content style={{flexDirection:'row',marginLeft:20}}>
-                    
+                <Card>
+                    <Card.Content>
+                        <Text style={styles.cardtext}>9 out of 14 days </Text>
+
                     </Card.Content>
                 </Card>
                 </View>
+
+                <View style={styles.buttonrow}>
+                    <Card style={[styles.cardbutton,]}>
+                        <Card.Content>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/symptoms2.png')}/>
+                            <Text style={styles.buttontext}>Symptoms </Text>
+                        </Card.Content>
+                    </Card>
+                    <Card style={[styles.cardbutton,]}>
+                        <Card.Content>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
+                            <Text style={styles.buttontext}>Report </Text>
+                        </Card.Content>
+                    </Card>
+                </View>
+                <View style={styles.buttonrow}>
+                    <Card style={[styles.cardbutton,]}>
+                        <Card.Content>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/symptoms2.png')}/>
+                            <Text style={styles.buttontext}>Goals </Text>
+                        </Card.Content>
+                    </Card>
+                    <Card style={[styles.cardbutton,]}>
+                        <Card.Content>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
+                            <Text style={styles.buttontext}>Something </Text>
+                        </Card.Content>
+                    </Card>
+                </View>
+               
+                {/* <View style={styles.buttonrow}>
+                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                        Symptoms
+                    </Button>
+                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                        <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
+                        <Text style={{alignSelf:'center',fontSize:20}}>Report</Text>
+                    </Button>
+                </View>
+                <View style={styles.buttonrow}>
+                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                        Goals
+                    </Button>
+                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                        Helplines
+                    </Button>
+                </View> */}
             </View>
             
             
