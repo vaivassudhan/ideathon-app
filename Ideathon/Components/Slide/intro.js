@@ -14,13 +14,12 @@ import {
     ImageBackground
 } from 'react-native';
 import Slide from './Slide';
-export class Intro extends Component {
-    render(){
-        return(
-            <View>
-                <Slide />
-            </View>
-        )
-    }
+import React from 'react'
+
+export default function intro() {
+    return (
+        <View>
+            <Slide/>
+        </View>
+    )
 }
-export default Intro

@@ -95,10 +95,10 @@ export class Slide extends Component {
         item.backgroundColor,
         item.backgroundColor1,
       ]} style={[
-        styles.slide,]}>
+        styles.slide]}>
 
       <SafeAreaView style={[
-        styles.slide,]}>
+        styles.slide]}>
         <Image source={item.image} style={styles.image} />
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.text}>{item.text}</Text>
@@ -109,7 +109,8 @@ export class Slide extends Component {
   _onDone = () => {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
-    this.setState({ showRealApp: true });
+    // this.setState({ showRealApp: true });
+    this.props.navigaton.navigate('Register')
   }
   render() {
     if (this.state.showRealApp) {
