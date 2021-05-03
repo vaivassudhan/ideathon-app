@@ -1,4 +1,4 @@
-
+import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, Text, View ,Button , ActivityIndicator} from 'react-native';
@@ -7,20 +7,20 @@ import { NavigationContainer, DefaultTheme as NavigationDefaultTheme,
   DarkTheme as NavigationDarkTheme } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { 
-  Provider as PaperProvider, 
-  DefaultTheme as PaperDefaultTheme,
-  DarkTheme as PaperDarkTheme 
-} from 'react-native-paper';
-
+    Provider as PaperProvider, 
+    DefaultTheme as PaperDefaultTheme,
+    DarkTheme as PaperDarkTheme 
+  } from 'react-native-paper';
+import { AuthContext } from './Components/context';
 import RootStackScreen from './Components/Navigation/RootStackScreen';
+import HomeScreen from './Screens/HomeScreen'
+import { DrawerContent } from './Components/Drawer/DrawerContent';
 
 
 const Stack = createStackNavigator();
-
 const Drawer = createDrawerNavigator();
+import MainTabScreen from './Components/BottomTabNavigation/MainTabScreen';
 import { enableScreens } from 'react-native-screens';
-import SplashScreen from './Components/SplashScreen/SplashScreen';
-
 
 const App = () => {
   enableScreens();
@@ -142,7 +142,6 @@ const App = () => {
       try {
 
         userToken = await AsyncStorage.getItem('Name');
-        console.log(JSON.parse(userToken))
 
         userToken = await AsyncStorage.getItem('Name');
         userName = await AsyncStorage.getItem('Name');
@@ -168,9 +167,20 @@ const App = () => {
 }
   return (
     <PaperProvider theme={theme}>
+    <AuthContext.Provider value={authContext}>
     <NavigationContainer theme={theme}>
-          <RootStackScreen/>
+    { loginState.userToken !== null ? (
+        <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+          <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+          <Drawer.Screen name="HomeScreen" component={HomeScreen} />  
+        </Drawer.Navigator>
+
+         )  
+         :
+           <RootStackScreen/>
+         }
     </NavigationContainer>
+    </AuthContext.Provider> 
     </PaperProvider>
   
   );
