@@ -58,7 +58,114 @@ const App = () => {
 
   const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
 
+  const loginReducer = (prevState, action) => {
+    switch( action.type ) {
+      case 'RETRIEVE_TOKEN': 
+        return {
+          ...prevState,
+          userToken: action.token,
+          isLoading: false,
+        };
+      case 'LOGIN': 
+        return {
+          ...prevState,
+          userName: action.id,
+          userToken: action.token,
+          isLoading: false,
+        };
+      case 'LOGOUT': 
+        return {
+          ...prevState,
+          userName: null,
+          userToken: null,
+          isLoading: false,
+        };
+      case 'REGISTER': 
+        return {
+          ...prevState,
+          userName: action.id,
+          userToken: action.token,
+          isLoading: false,
+        };
+    }
+  };
 
+  const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
+
+  const authContext = React.useMemo(() => ({
+    signIn: async(dic) => {
+      // setUserToken('fgkj');
+      // setIsLoading(false);
+      console.log("APP.JS",dic.Name)
+      try {
+        
+        await AsyncStorage.setItem('Name', dic.Name );
+        await AsyncStorage.setItem('Age', dic.Age);
+        await AsyncStorage.setItem('Gender', dic.Gender);
+        await AsyncStorage.setItem('PhoneNumber', dic.PhoneNumber);
+        
+        // await AsyncStorage.setItem('Email',foundUser.userEmail);
+      } catch(e) {
+        console.log(e); 
+      }
+      // console.log('user token: ', userToken);
+      dispatch({ type: 'LOGIN', id: dic.Name, token: dic.Name });
+    },
+    signOut: async() => {
+      // setUserToken(null);
+      // setIsLoading(false);
+      try {
+        await AsyncStorage.removeItem('Name');
+        await AsyncStorage.removeItem('Age');
+        await AsyncStorage.removeItem('Gender');
+        await AsyncStorage.removeItem('PhoneNumber');
+        
+      } catch(e) {
+        console.log(e);
+      }
+      dispatch({ type: 'LOGOUT' });
+    },
+    signUp: () => {
+      // setUserToken('fgkj');
+      // setIsLoading(false);
+    },
+    toggleTheme: () => {
+      setIsDarkTheme( isDarkTheme => !isDarkTheme );
+    }
+  }), []);
+
+  useEffect(() => {
+    setTimeout(async() => {
+      // setIsLoading(false);
+      let userToken;
+      userToken = null;
+      try {
+
+        userToken = await AsyncStorage.getItem('Name');
+        console.log(JSON.parse(userToken))
+
+        userToken = await AsyncStorage.getItem('Name');
+        userName = await AsyncStorage.getItem('Name');
+        userAge = await AsyncStorage.getItem('Age');
+        userGender = await AsyncStorage.getItem('Gender');
+        userPhoneNumber = await AsyncStorage.getItem('PhoneNumber');
+        
+        console.log("App.js:",userName)
+      } catch(e) {
+        console.log(e);
+      }
+      console.log('usertoken: ', userToken);
+      dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
+    }, 1000);
+  }, []);
+
+  if( loginState.isLoading ) {
+    return(
+      <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+        <ActivityIndicator size="large"/>
+      </View>
+    );
+}
   return (
     <PaperProvider theme={theme}>
     <NavigationContainer theme={theme}>
