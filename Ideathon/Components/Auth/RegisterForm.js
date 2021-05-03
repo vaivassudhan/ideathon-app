@@ -19,10 +19,12 @@ import * as Notifications from 'expo-notifications'
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import { useTheme } from 'react-native-paper';
+import axios from 'axios';
 import { AuthContext } from '../context';
 
 
-const Register = ({navigation}) => {
+const RegisteForm = ({navigation}) => {
+    const { signIn } = React.useContext(AuthContext);
 
     const [Name, setName]=useState('');
     const [Age , setAge]=useState('');
@@ -30,7 +32,6 @@ const Register = ({navigation}) => {
     const [Address , setAddress]=useState('');
     const [City , setCity]=useState('');
     const [PhoneNumber , setPhoneNumber]=useState('');
-    // const { signIn } = React.useContext(AuthContext);
 
 
     const [data, setData] = React.useState({
@@ -60,7 +61,7 @@ const Register = ({navigation}) => {
                 Gender:Gender,
                 PhoneNumber:PhoneNumber
             }
-            signIn(response.data.user);
+            signIn(dic);
             navigation.navigate('HomeScreen')
         }
         else{
@@ -403,7 +404,7 @@ const Register = ({navigation}) => {
     );
 };
 
-export default Register;
+export default RegisteForm;
 
 const styles = StyleSheet.create({
     container: {
