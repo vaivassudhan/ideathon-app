@@ -9,6 +9,7 @@ import {
     Linking,
      Image, ImageBackground
 } from 'react-native';
+import { Button } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -42,7 +43,10 @@ const SplashScreen = ({navigation}) => {
             <Text style={styles.text} >for a better tomorrow</Text>
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
-                <LinearGradient
+                <Button mode="contained">
+                    Get Started
+                </Button>
+                {/* <LinearGradient
                     colors={['#c53d34', '#c53d34']}
                     style={styles.signIn}
                 >
@@ -52,7 +56,7 @@ const SplashScreen = ({navigation}) => {
                         color="#fff"
                         size={20}
                     />
-                </LinearGradient>
+                </LinearGradient> */}
             </TouchableOpacity>
             </View>
         </Animatable.View>
