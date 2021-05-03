@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 });
 const slides = [
     {
-      key: 1,
+      key: 'one',
       title: 'Title 1',
       text: 'Description.\nSay something cool',
       image: require('../../assets/415.jpg'),
@@ -65,7 +65,7 @@ const slides = [
       
     },
     {
-      key: 2,
+      key: 'two',
       title: 'Title 2',
       text: 'Other cool stuff',
       image: require('../../assets/report.jpg'),
@@ -73,7 +73,7 @@ const slides = [
       backgroundColor1: 'rgb(250,250,250)',
     },
     {
-      key: 3,
+      key: 'three',
       title: 'Rocket guy',
       text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
       image: require('../../assets/bg1.png'),
