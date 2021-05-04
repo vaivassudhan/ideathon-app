@@ -19,6 +19,8 @@ const MainTabScreen = () => (
     <Tab.Navigator
       initialRouteName="Home"
       activeColor="#fff"
+      barStyle={{ backgroundColor: 'rgb(54,118,203)' }}
+      
     >
       <Tab.Screen
         name="Home"
@@ -31,7 +33,7 @@ const MainTabScreen = () => (
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Notifications"
         component={ProfileScreen}
         options={{
@@ -41,7 +43,7 @@ const MainTabScreen = () => (
             <Icon name="ios-notifications" color={color} size={26} />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Profile"
         component={ProfileStackScreen}
@@ -57,10 +59,10 @@ const MainTabScreen = () => (
         name="Helpline"
         component={HelplineStackScreen}
         options={{
-          tabBarLabel: 'Helpline',
+          tabBarLabel: 'Helplines',
           tabBarColor: 'rgb(54,118,203)',
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-aperture" color={color} size={26} />
+            <Icon name="call-sharp" color={color} size={26} />
           ),
         }}
       />
