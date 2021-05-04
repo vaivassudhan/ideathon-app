@@ -42,10 +42,11 @@ const SplashScreen = ({navigation}) => {
             }]}>Home Quarantine Assistance</Text>
             <Text style={styles.text} >for a better tomorrow</Text>
             <View style={styles.button}>
-            <TouchableOpacity onPress={()=>navigation.navigate('Slide')}>
+            {/* <TouchableOpacity onPress={()=>navigation.navigate('Slide')}>
                 <Button style={{backgroundColor:'rgb(34,88,163)'}} mode="contained">
                     Get Started
-                </Button>
+                </Button> */}
+                
                 {/* <LinearGradient
                     colors={['#c53d34', '#c53d34']}
                     style={styles.signIn}
@@ -57,6 +58,22 @@ const SplashScreen = ({navigation}) => {
                         size={20}
                     />
                 </LinearGradient> */}
+            {/* </TouchableOpacity> */}
+            <TouchableOpacity
+            style={{
+                borderWidth:1,
+                borderColor:'rgba(0,0,0,0.2)',
+                alignItems:'center',
+                justifyContent:'center',
+                width:150,
+                height:50,
+                backgroundColor:'rgb(34,88,163)',
+                borderRadius:25,
+                }}
+                onPress={()=>navigation.navigate('Slide')}
+            >
+             <Text style={styles.textSign}>Get Started</Text>
+            
             </TouchableOpacity>
             </View>
         </Animatable.View>
