@@ -1,4 +1,4 @@
-export default helpline_nums=[
+const helpline_nums=[
     {
         state:'Andhra Pradesh',
         number:'0866-2410978'
@@ -66,3 +66,4 @@ export default helpline_nums=[
     },
 
 ]
+export default helpline_nums
