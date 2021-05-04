@@ -72,6 +72,7 @@
     "react-native-screens": "^2.16.1",
     "react-native-sectioned-multi-select": "^0.8.1",
     "react-native-select-multiple": "^2.1.0",
+    "react-native-selectmultiple-button": "^0.1.105",
     "react-native-shape": "^1.1.2",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-table-component": "^1.2.1",
