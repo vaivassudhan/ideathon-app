@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Icon from 'react-native-vector-icons/Ionicons';
 import { 
     SafeAreaView,
     View, 
@@ -16,9 +17,12 @@ import {
 export class Breathing extends Component {
     render() {
         return (
-            <View>
-                <Text>Hi,THis is Goals Page</Text>
-            </View>
+        <View>
+        <StatusBar
+        animated={true}
+        backgroundColor="rgb(54,118,203)"/>
+        <Icon.Button name="ios-menu" size={25} backgroundColor="rgb(54,118,203)" onPress={() => this.props.navigation.navigate('Home')}> Back</Icon.Button>   
+        </View>
         )
     }
 }
