@@ -62,12 +62,16 @@ const RegisteForm = ({navigation}) => {
     function contin(){
         if(data.check_textNameChange || data.check_textAgeChange || data.check_textGenderChange || data.check_textPhoneNumberChange){
             var date = getCurrentDate();
+            var dem = {
+                data:[]
+                }
             const dic= {
                 Name:Name,
                 Age:Age,
                 Gender:Gender,
                 PhoneNumber:PhoneNumber,
-                Date:date
+                Date:date,
+                Symtoms:JSON.stringify(dem)
             }
             console.log(dic)
             signIn(dic);
