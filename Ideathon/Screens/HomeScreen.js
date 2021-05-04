@@ -27,6 +27,7 @@ const styles= StyleSheet.create({
     container:{
         flex:1,
         alignItems:'center',
+        backgroundColor:'#f2f2f2'
     },
     welcometext:{
         fontSize:20,
@@ -38,13 +39,21 @@ const styles= StyleSheet.create({
         flexDirection:'row',
         marginTop:12,
         marginBottom:28,
-
     },
     buttonrow:{
         flexDirection:'row',
         marginTop:22,
-        // marginLeft:12,
+    },
+    daycard:{
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
 
+        elevation: 8,
     },
     cardstyle:{
         marginLeft:12,
@@ -52,7 +61,7 @@ const styles= StyleSheet.create({
         marginTop:12,
         flexDirection:'row',
       },
-      cardtext:{
+      daycardtext:{
         color:'rgb(54,118,203)',
         fontSize:22,
         marginTop:12,
@@ -62,19 +71,21 @@ const styles= StyleSheet.create({
         fontSize:18,
         marginTop:12,
       },
-
-      fourbuttons:{
-        marginLeft:10,
-        marginRight:10,
-      },
       cardbutton:{
         alignItems:'center',
-          width:'40%',
-          margin:10,
-          justifyContent:'center'
-      }
+        width:'40%',
+        margin:10,
+        justifyContent:'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 9,
+        },
+        shadowOpacity: 0.48,
+        shadowRadius: 11.95,
 
-
+        elevation: 18,
+        }
 })
 
 export class Home extends Component {
@@ -88,9 +99,9 @@ export class Home extends Component {
                     Welcome back!!
                 </Text>
                 <View style={styles.cardrow}>
-                <Card>
+                <Card style={styles.daycard}>
                     <Card.Content>
-                        <Text style={styles.cardtext}>9 out of 14 days </Text>
+                        <Text style={styles.daycardtext}>9 out of 14 days </Text>
 
                     </Card.Content>
                 </Card>
@@ -113,14 +124,14 @@ export class Home extends Component {
                 <View style={styles.buttonrow}>
                     <Card style={[styles.cardbutton,]}>
                         <Card.Content>
-                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/symptoms2.png')}/>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/target.png')}/>
                             <Text style={styles.buttontext}>Goals </Text>
                         </Card.Content>
                     </Card>
                     <Card style={[styles.cardbutton,]}>
                         <Card.Content>
-                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
-                            <Text style={styles.buttontext}>Something </Text>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/heart.png')}/>
+                            <Text style={styles.buttontext}>Breathing </Text>
                         </Card.Content>
                     </Card>
                 </View>
