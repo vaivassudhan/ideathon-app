@@ -19,6 +19,7 @@ import Symptoms from './Screens/Symptoms';
 import Breathing from './Screens/Breathing';
 import Report from './Screens/Report';
 import Goals from './Screens/Goals';
+import Symco from './Components/Symtomscom/Symco';
 
 
 const Stack = createStackNavigator();
@@ -97,6 +98,15 @@ const App = () => {
   const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
 
   const authContext = React.useMemo(() => ({
+    AddSelectedList:async(selected)=>{
+      try {
+        await AsyncStorage.setItem('Symtoms', selected );
+        userSymptoms = await AsyncStorage.getItem('Symtoms');
+        console.log("ghfhhgfhfh",userSymptoms)
+      }catch(e){
+        console.log(e); 
+      }
+    },
     signIn: async(dic) => {
       // setUserToken('fgkj');
       // setIsLoading(false);
@@ -108,7 +118,11 @@ const App = () => {
         await AsyncStorage.setItem('Gender', dic.Gender);
         await AsyncStorage.setItem('PhoneNumber', dic.PhoneNumber);
         await AsyncStorage.setItem('Date', dic.Date);
-        
+        await AsyncStorage.setItem('Symtoms', dic.Symtoms);
+
+        userSymptoms = await AsyncStorage.getItem('Symtoms');
+
+        console.log("dsfhggfhj",userSymptoms)
         // await AsyncStorage.setItem('Email',foundUser.userEmail);
       } catch(e) {
         console.log(e); 
@@ -125,6 +139,7 @@ const App = () => {
         await AsyncStorage.removeItem('Gender');
         await AsyncStorage.removeItem('PhoneNumber');
         await AsyncStorage.removeItem('Date');
+        await AsyncStorage.removeItem('Symtoms');
         
       } catch(e) {
         console.log(e);
@@ -155,6 +170,7 @@ const App = () => {
         userGender = await AsyncStorage.getItem('Gender');
         userPhoneNumber = await AsyncStorage.getItem('PhoneNumber');
         userDate = await AsyncStorage.getItem('Date');
+        userSymptoms = await AsyncStorage.getItem('Symtoms');
         
         console.log("App.js:",userName)
       } catch(e) {
@@ -184,6 +200,7 @@ const App = () => {
           <Drawer.Screen name="Goals" component={Goals} /> 
           <Drawer.Screen name="Breathing" component={Breathing} /> 
           <Drawer.Screen name="Report" component={Report} /> 
+          <Drawer.Screen name="Symco" component={Symco} /> 
         </Drawer.Navigator>
 
          )  
