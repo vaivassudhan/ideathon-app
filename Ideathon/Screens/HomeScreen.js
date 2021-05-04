@@ -23,6 +23,88 @@ import Constants from 'expo-constants';
 import { useTheme } from 'react-native-paper';
 import axios from 'axios';
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
+export class Home extends Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.welcometext}>
+                    Hello {userName},
+                </Text>
+                <Text style={styles.welcometext}>
+                    Welcome back!!
+                </Text>
+                <View style={styles.cardrow}>
+                <Card style={styles.daycard}>
+                    <Card.Content>
+                        <Text style={styles.daycardtext}>9 out of 14 days </Text>
+
+                    </Card.Content>
+                </Card>
+                </View>
+
+                <View style={styles.buttonrow}>
+                    <Card style={[styles.cardbutton,]}>
+                        <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Symptoms')}} >
+                        <Card.Content>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/symptoms2.png')}/>
+                            <Text style={styles.buttontext}>Symptoms </Text>
+                        </Card.Content>
+                        </TouchableOpacity>
+                    </Card>
+                    <Card style={[styles.cardbutton,]}>
+                    <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Report')}} >
+                        <Card.Content>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
+                            <Text style={styles.buttontext}>Report </Text>
+                        </Card.Content>
+                    </TouchableOpacity>
+                    </Card>
+                </View>
+                <View style={styles.buttonrow}>
+                    <Card style={[styles.cardbutton,]}>
+                    <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Goals')}} >
+                        <Card.Content>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/target.png')}/>
+                            <Text style={styles.buttontext}>Goals </Text>
+                        </Card.Content>
+                    </TouchableOpacity>
+                    </Card>
+                    <Card style={[styles.cardbutton,]}>
+                    <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Breathing')}} >
+                        <Card.Content>
+                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/heart.png')}/>
+                            <Text style={styles.buttontext}>Breathing </Text>
+                        </Card.Content>
+                        </TouchableOpacity>
+                    </Card>
+                </View>
+               
+                {/* <View style={styles.buttonrow}>
+                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                        Symptoms
+                    </Button>
+                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                        <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
+                        <Text style={{alignSelf:'center',fontSize:20}}>Report</Text>
+                    </Button>
+                </View>
+                <View style={styles.buttonrow}>
+                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                        Goals
+                    </Button>
+                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                        Helplines
+                    </Button>
+                </View> */}
+            </View>
+            
+            
+        )
+    }
+}
+
+export default Home
+
 const styles= StyleSheet.create({
     container:{
         flex:1,
@@ -37,7 +119,6 @@ const styles= StyleSheet.create({
     },
     cardrow:{
         flexDirection:'row',
-        marginTop:12,
         marginBottom:28,
     },
     buttonrow:{
@@ -87,77 +168,3 @@ const styles= StyleSheet.create({
         elevation: 18,
         }
 })
-
-export class Home extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcometext}>
-                    Hello Vaivas,
-                </Text>
-                <Text style={styles.welcometext}>
-                    Welcome back!!
-                </Text>
-                <View style={styles.cardrow}>
-                <Card style={styles.daycard}>
-                    <Card.Content>
-                        <Text style={styles.daycardtext}>9 out of 14 days </Text>
-
-                    </Card.Content>
-                </Card>
-                </View>
-
-                <View style={styles.buttonrow}>
-                    <Card style={[styles.cardbutton,]}>
-                        <Card.Content>
-                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/symptoms2.png')}/>
-                            <Text style={styles.buttontext}>Symptoms </Text>
-                        </Card.Content>
-                    </Card>
-                    <Card style={[styles.cardbutton,]}>
-                        <Card.Content>
-                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
-                            <Text style={styles.buttontext}>Report </Text>
-                        </Card.Content>
-                    </Card>
-                </View>
-                <View style={styles.buttonrow}>
-                    <Card style={[styles.cardbutton,]}>
-                        <Card.Content>
-                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/target.png')}/>
-                            <Text style={styles.buttontext}>Goals </Text>
-                        </Card.Content>
-                    </Card>
-                    <Card style={[styles.cardbutton,]}>
-                        <Card.Content>
-                            <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/heart.png')}/>
-                            <Text style={styles.buttontext}>Breathing </Text>
-                        </Card.Content>
-                    </Card>
-                </View>
-               
-                {/* <View style={styles.buttonrow}>
-                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
-                        Symptoms
-                    </Button>
-                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
-                        <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
-                        <Text style={{alignSelf:'center',fontSize:20}}>Report</Text>
-                    </Button>
-                </View>
-                <View style={styles.buttonrow}>
-                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
-                        Goals
-                    </Button>
-                    <Button style={[styles.cardbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
-                        Helplines
-                    </Button>
-                </View> */}
-            </View>
-            
-            
-        )
-    }
-}
-
-export default Home
