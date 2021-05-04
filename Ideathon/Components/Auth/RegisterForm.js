@@ -33,7 +33,6 @@ const RegisteForm = ({navigation}) => {
     const [City , setCity]=useState('');
     const [PhoneNumber , setPhoneNumber]=useState('');
 
-
     const [data, setData] = React.useState({
         Name:'',
         Age:'',
@@ -52,15 +51,25 @@ const RegisteForm = ({navigation}) => {
         isValidUser: true,
         
     });
+    const getCurrentDate=()=>{
+
+        var date = new Date().getDate();
+        var month = new Date().getMonth() + 1;
+        var year = new Date().getFullYear();
+        return month + '/' + date + '/' + year;
+  }
     
     function contin(){
         if(data.check_textNameChange || data.check_textAgeChange || data.check_textGenderChange || data.check_textPhoneNumberChange){
+            var date = getCurrentDate();
             const dic= {
                 Name:Name,
                 Age:Age,
                 Gender:Gender,
-                PhoneNumber:PhoneNumber
+                PhoneNumber:PhoneNumber,
+                Date:date
             }
+            console.log(dic)
             signIn(dic);
             navigation.navigate('HomeScreen')
         }
