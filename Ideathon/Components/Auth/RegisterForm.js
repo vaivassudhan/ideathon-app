@@ -192,7 +192,7 @@ const RegisteForm = ({navigation}) => {
         source={require('../../assets/dem1.jpg')} 
         style={{width:undefined, padding:16, paddingTop:48, height:250}}
         >
-          <StatusBar backgroundColor='#009387' barStyle="light-content"/>
+          <StatusBar backgroundColor='rgb(54,118,203)' barStyle="light-content"/>
         <View style={styles.header}>
             <Text style={styles.text_header}>Welcome!</Text>
         </View>
