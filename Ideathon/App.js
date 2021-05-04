@@ -15,6 +15,10 @@ import { AuthContext } from './Components/context';
 import RootStackScreen from './Components/Navigation/RootStackScreen';
 import HomeScreen from './Screens/HomeScreen'
 import { DrawerContent } from './Components/Drawer/DrawerContent';
+import Symptoms from './Screens/Symptoms';
+import Breathing from './Screens/Breathing';
+import Report from './Screens/Report';
+import Goals from './Screens/Goals';
 
 
 const Stack = createStackNavigator();
@@ -172,7 +176,11 @@ const App = () => {
     { loginState.userToken !== null ? (
         <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
           <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
-          <Drawer.Screen name="HomeScreen" component={HomeScreen} />  
+          <Drawer.Screen name="HomeScreen" component={HomeScreen} /> 
+          <Drawer.Screen name="Symptoms" component={Symptoms} /> 
+          <Drawer.Screen name="Goals" component={Goals} /> 
+          <Drawer.Screen name="Breathing" component={Breathing} /> 
+          <Drawer.Screen name="Report" component={Report} /> 
         </Drawer.Navigator>
 
          )  
