@@ -17,11 +17,33 @@ import {
 export class Symptoms extends Component {
     render() {
         return (
-            <View>
-                <Text>Hi, This is Symptoms Page.....</Text>
+            <View style={styles.container}>
+                <Image style={styles.backgroundimage} source={require('../assets/bg1.png')}/>
+                <View style={styles.incont}>
+                    <Text>
+                        hello
+                    </Text>
+                </View>
             </View>
         )
     }
 }
 
 export default Symptoms
+const styles= StyleSheet.create({
+    backgroundimage:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width:null,
+        height:null
+    },
+    container:{
+        flex:1,
+    },
+    incont:{
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+   
+})

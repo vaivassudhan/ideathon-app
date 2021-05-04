@@ -17,11 +17,13 @@ import {
 export class Breathing extends Component {
     render() {
         return (
-        <View>
+        <View style={{backgroundColor:'rgb(54,118,203)'}}>
         <StatusBar
         animated={true}
         backgroundColor="rgb(54,118,203)"/>
+        <SafeAreaView>
         <Icon.Button name="ios-menu" size={25} backgroundColor="rgb(54,118,203)" onPress={() => this.props.navigation.navigate('Home')}> Back</Icon.Button>   
+        </SafeAreaView>
         </View>
         )
     }
