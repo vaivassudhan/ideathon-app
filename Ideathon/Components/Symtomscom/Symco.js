@@ -35,20 +35,20 @@ export default function Symco(props) {
 
 const readData = async() => {
     try {
-      userSymtoms = await AsyncStorage.getItem('SymptomDetails');
+      global.userSymtoms = await AsyncStorage.getItem('Symtoms');
     } catch(e) {
       console.log(e);
     }
 }
     const Done=()=>{
+        console.log("vcgfhgfh",userSymtoms)
+        var dem = JSON.parse(userSymtoms)
         var date = getCurrentDate();
         const dic = {
-            "sym":[{
                 Symptoms:props.route.params.selected,
                 Date:date,
-            }]
         }
-        AddSelectedList(JSON.stringify(dic))
+        AddSelectedList(JSON.stringify(dem))
         props.navigation.navigate('Home')
     }
     return (
