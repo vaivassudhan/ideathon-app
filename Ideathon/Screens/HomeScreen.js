@@ -23,7 +23,7 @@ import Constants from 'expo-constants';
 import { useTheme } from 'react-native-paper';
 import axios from 'axios';
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
-export function Home(props){
+export function Home({navigation}){
     const [Name,setName]=useState('')
     const [Gender,setGender]=useState('')
 
@@ -63,7 +63,7 @@ export function Home(props){
 
                 <View style={styles.buttonrow}>
                     <Card style={[styles.cardbutton,]}>
-                        <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Symptoms')}} >
+                        <TouchableOpacity onPress={() =>{navigation.navigate('Symptoms')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/symptoms2.png')}/>
                             <Text style={styles.buttontext}>Symptoms </Text>
@@ -71,7 +71,7 @@ export function Home(props){
                         </TouchableOpacity>
                     </Card>
                     <Card style={[styles.cardbutton,]}>
-                    <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Report')}} >
+                    <TouchableOpacity onPress={() =>{navigation.navigate('Report')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
                             <Text style={styles.buttontext}>Report </Text>
@@ -81,7 +81,7 @@ export function Home(props){
                 </View>
                 <View style={styles.buttonrow}>
                     <Card style={[styles.cardbutton,]}>
-                    <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Goals')}} >
+                    <TouchableOpacity onPress={() =>{navigation.navigate('Goals')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/target.png')}/>
                             <Text style={styles.buttontext}>Goals </Text>
@@ -89,7 +89,7 @@ export function Home(props){
                     </TouchableOpacity>
                     </Card>
                     <Card style={[styles.cardbutton,]}>
-                    <TouchableOpacity onPress={() =>{this.props.navigation.navigate('Breathing')}} >
+                    <TouchableOpacity onPress={() =>{navigation.navigate('Breathing')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/heart.png')}/>
                             <Text style={styles.buttontext}>Breathing </Text>
