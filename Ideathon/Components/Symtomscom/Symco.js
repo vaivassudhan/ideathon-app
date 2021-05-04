@@ -31,7 +31,7 @@ export default function Symco(props) {
   }
   useEffect(() => {
     readData();
-}, [])
+}, [props.route.params.selected])
 
 const readData = async() => {
     try {
