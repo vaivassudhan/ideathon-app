@@ -16,6 +16,8 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import { AuthContext } from '../context';
 import { Button } from 'react-native-paper';
+import AsyncStorage from '@react-native-community/async-storage';
+import { useEffect } from 'react';
 export default function Symco(props) { 
     const { AddSelectedList } = React.useContext(AuthContext);
 
@@ -27,7 +29,17 @@ export default function Symco(props) {
         var year = new Date().getFullYear();
         return month + '/' + date + '/' + year;
   }
+  useEffect(() => {
+    readData();
+}, [])
 
+const readData = async() => {
+    try {
+      userSymtoms = await AsyncStorage.getItem('SymptomDetails');
+    } catch(e) {
+      console.log(e);
+    }
+}
     const Done=()=>{
         var date = getCurrentDate();
         const dic = {
