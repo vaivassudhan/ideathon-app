@@ -30,7 +30,7 @@ const slides = [
       title: 'Welcome to CoviCare',
       text: 'Your Home Quarantine Assistant',
       image: require('../../assets/415.jpg'),
-      backgroundColor: 'rgb(184, 228, 255)',
+      backgroundColor: 'rgb(255, 255, 255)',
       backgroundColor1: 'rgb(255,255,255)',
       
     },
