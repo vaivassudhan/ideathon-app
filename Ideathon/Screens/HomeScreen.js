@@ -23,12 +23,31 @@ import Constants from 'expo-constants';
 import { useTheme } from 'react-native-paper';
 import axios from 'axios';
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
-export class Home extends Component {
-    render() {
+export function Home(props){
+    const [Name,setName]=useState('')
+    const [Gender,setGender]=useState('')
+
+    useEffect(() => {
+        readData()
+    }, [])
+
+    const readData = async() => {
+        try {
+          userName = await AsyncStorage.getItem('Name');
+          userGender = await AsyncStorage.getItem('Gender');
+          userAge = await AsyncStorage.getItem('Age');
+          userPhoneNumber = await AsyncStorage.getItem('PhoneNumber');
+          setName(userName)
+          setGender(userGender)
+          
+        } catch(e) {
+          console.log(e);
+        }
+    }
         return (
             <View style={styles.container}>
                 <Text style={styles.welcometext}>
-                    Hello {userName},
+                    Hello {Name},
                 </Text>
                 <Text style={styles.welcometext}>
                     Welcome back!!
@@ -101,7 +120,6 @@ export class Home extends Component {
             
         )
     }
-}
 
 export default Home
 

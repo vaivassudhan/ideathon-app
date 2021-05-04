@@ -56,6 +56,7 @@ export function DrawerContent(props)  {
                             <Avatar.Image 
                                  source={require('../../assets/cc.png')}
                                  size={50}
+                                 style={{backgroundColor:'white'}}
                             />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
                                 <Title style={styles.title}>{Name}</Title>
