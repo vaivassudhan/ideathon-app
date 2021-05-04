@@ -27,9 +27,11 @@ import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
 export function Home({navigation}){
     const [Name,setName]=useState('')
     const [Gender,setGender]=useState('')
+    const [Date ,setDate]=useState('')
 
     useEffect(() => {
-        readData()
+        readData();
+        checkDate();
     }, [])
 
     const readData = async() => {
@@ -38,12 +40,24 @@ export function Home({navigation}){
           userGender = await AsyncStorage.getItem('Gender');
           userAge = await AsyncStorage.getItem('Age');
           userPhoneNumber = await AsyncStorage.getItem('PhoneNumber');
+          userDate = await AsyncStorage.getItem('Date');
           setName(userName)
           setGender(userGender)
+          setDate(userDate)
           
         } catch(e) {
           console.log(e);
         }
+    }
+    const checkDate = ()=>{
+
+        // console.log(userDate)
+        // const date1 = new Date();
+        // const date2 = new Date();
+        // const diffTime = Math.abs(date2 - date1);
+        // const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        // console.log(diffTime + " milliseconds");
+        // console.log(diffDays + " days");
     }
         return (
             <View style={styles.container}>
@@ -56,8 +70,8 @@ export function Home({navigation}){
                 <View style={styles.cardrow}>
                 <Card style={styles.daycard}>
                     <Card.Content>
-                        <Text style={styles.daycardtext}>9 out of 14 days </Text>
-
+                        {/* <Text style={styles.daycardtext}>9 out of 14 days </Text> */}
+                        <Text style={styles.daycardtext}>{userDate}</Text>
                     </Card.Content>
                 </Card>
                 </View>
