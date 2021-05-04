@@ -18,7 +18,7 @@ export class Symptoms extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image style={styles.backgroundimage} source={require('../assets/bg1.png')}/>
+                {/* <Image style={styles.backgroundimage} source={require('../assets/bg1.png')}/> */}
                 <View style={styles.incont}>
                     <Text>
                         hello

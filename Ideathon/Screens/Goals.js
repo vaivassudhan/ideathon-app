@@ -22,7 +22,7 @@ export class Breathing extends Component {
         animated={true}
         backgroundColor="rgb(54,118,203)"/>
         <SafeAreaView>
-        <Icon.Button name="ios-menu" size={25} backgroundColor="rgb(54,118,203)" onPress={() => this.props.navigation.navigate('Home')}> Back</Icon.Button>   
+        <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => this.props.navigation.navigate('Home')}> Back</Icon.Button>   
         </SafeAreaView>
         </View>
         )
