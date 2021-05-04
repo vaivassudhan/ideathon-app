@@ -22,6 +22,7 @@ import { AuthContext } from '../Components/context';
 
 const ios_blue = "#007AFF";
 const multipleData = ["Fever", "Cold", "Loss of smell", "Loss of taste", "Headache","Pain in chest with deep breaths","Shortness of breath","Sore Throat","Stomach ache","Diarrhea"];
+// const multipleData = {1:"Fever",2: "Cold",3: "Loss of smell",4: "Loss of taste",5: "Headache",6:"Pain in chest with deep breaths",7:"Shortness of breath",8:"Sore Throat",9:"Stomach ache",10:"Diarrhea"};
 export class Symptoms extends Component {
   constructor(props) {
     super(props);
