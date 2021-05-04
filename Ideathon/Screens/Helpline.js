@@ -25,7 +25,7 @@ export class Helpline extends Component {
                     <View>
                     <Text key={key} style={styles.statename}>{item.state}</Text>
                     <View style={{flexDirection:'row'}}>
-                        <Icon style={styles.callicon}  name="call" size={25} />
+                        <Icon style={styles.callicon} onPress={() => {Linking.openURL(`tel:${item.number}`)}} name="call" size={25} />
                         <Text style={styles.number}  onPress={() => {Linking.openURL(`tel:${item.number}`)}}>{item.number}</Text>
                     </View>
                     <View
