@@ -28,7 +28,7 @@ export function Home({navigation}){
     const [Name,setName]=useState('')
     const [Gender,setGender]=useState('')
     const [Date ,setDate]=useState('')
-
+    const [Days,setDays]=useState('')
     useEffect(() => {
         readData();
         checkDate();
@@ -51,13 +51,19 @@ export function Home({navigation}){
     }
     const checkDate = ()=>{
 
-        // console.log(userDate)
-        // const date1 = new Date();
-        // const date2 = new Date();
-        // const diffTime = Math.abs(date2 - date1);
-        // const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-        // console.log(diffTime + " milliseconds");
-        // console.log(diffDays + " days");
+        console.log(userDate)
+        const date1 = new window.Date(userDate);
+        const date2 = new window.Date();
+        const diffTime = Math.abs(date2 - date1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        console.log(diffTime + " milliseconds");
+        console.log(diffDays + " days");
+        if(diffDays<14){
+            setDays(diffDays)
+        }
+        else{
+            setDays('You are Quarantine free!!!')
+        }
     }
         return (
             <View style={styles.container}>
@@ -70,8 +76,8 @@ export function Home({navigation}){
                 <View style={styles.cardrow}>
                 <Card style={styles.daycard}>
                     <Card.Content>
-                        {/* <Text style={styles.daycardtext}>9 out of 14 days </Text> */}
-                        <Text style={styles.daycardtext}>{userDate}</Text>
+                        <Text style={styles.daycardtext}>{Days} out of 14 days </Text>
+                        {/* <Text style={styles.daycardtext}>{userDate}</Text> */}
                     </Card.Content>
                 </Card>
                 </View>
@@ -148,11 +154,12 @@ const styles= StyleSheet.create({
         fontSize:20,
         marginTop:12,
         marginLeft:12,
-        fontWeight:"500",
+        fontWeight:"700",
     },
     cardrow:{
         flexDirection:'row',
         marginBottom:28,
+        marginTop:28,
     },
     buttonrow:{
         flexDirection:'row',
@@ -178,7 +185,6 @@ const styles= StyleSheet.create({
       daycardtext:{
         color:'rgb(54,118,203)',
         fontSize:22,
-        marginTop:12,
       },
       buttontext:{
         color:'rgb(54,118,203)',
