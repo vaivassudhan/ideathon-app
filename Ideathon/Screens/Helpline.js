@@ -17,7 +17,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import helpline_nums from '../Data/helplines.js'
 export class Helpline extends Component {
     render() {
-        console.log(helpline_nums)
         return (
                 <View style={styles.container}>
                 <ScrollView>
@@ -50,7 +49,8 @@ const styles=StyleSheet.create({
     statename:{
         fontSize:20,
         fontWeight:'500',
-        marginBottom:8,
+        marginBottom:12,
+        marginTop:8,
     },
     number:{
         color:'rgb(54,118,203)',
