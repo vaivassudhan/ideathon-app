@@ -18,17 +18,19 @@ import _ from "lodash";
 import {SelectMultipleButton} from 'react-native-selectmultiple-button'
 import { Checkbox } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { AuthContext } from '../Components/context';
+
 const ios_blue = "#007AFF";
 const multipleData = ["Fever", "Cold", "Loss of smell", "Loss of taste", "Headache","Pain in chest with deep breaths","Shortness of breath","Sore Throat","Stomach ache","Diarrhea"];
 export class Symptoms extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
     
-        this.state = {
-          multipleSelectedData: [],
-          multipleSelectedDataLimited: []
-        };
-      }
+    this.state = {
+      multipleSelectedData: [],
+      multipleSelectedDataLimited: [],
+    };
+  }
     render() {
         return (
             <View styles={styles.container}>
@@ -74,7 +76,7 @@ export class Symptoms extends Component {
                 
                 </View>
                 <View style={{alignSelf:'flex-end'}}>
-                <Button style={[styles.nextbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained">
+                <Button style={[styles.nextbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained" onPress={() => this.props.navigation.navigate('Symco',{selected:this.state.multipleSelectedData})}>
                         Next
                 </Button>
                 </View>
