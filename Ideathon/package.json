@@ -76,6 +76,7 @@
     "react-native-shape": "^1.1.2",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-table-component": "^1.2.1",
+    "react-native-tag-select": "^2.0.0",
     "react-native-typed-css-transformer": "^0.10.2",
     "react-native-web": "^0.16.1",
     "react-navigation": "^4.4.3",
