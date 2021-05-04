@@ -107,6 +107,7 @@ const App = () => {
         await AsyncStorage.setItem('Age', dic.Age);
         await AsyncStorage.setItem('Gender', dic.Gender);
         await AsyncStorage.setItem('PhoneNumber', dic.PhoneNumber);
+        await AsyncStorage.setItem('Date', dic.Date);
         
         // await AsyncStorage.setItem('Email',foundUser.userEmail);
       } catch(e) {
@@ -123,6 +124,7 @@ const App = () => {
         await AsyncStorage.removeItem('Age');
         await AsyncStorage.removeItem('Gender');
         await AsyncStorage.removeItem('PhoneNumber');
+        await AsyncStorage.removeItem('Date');
         
       } catch(e) {
         console.log(e);
@@ -152,6 +154,7 @@ const App = () => {
         userAge = await AsyncStorage.getItem('Age');
         userGender = await AsyncStorage.getItem('Gender');
         userPhoneNumber = await AsyncStorage.getItem('PhoneNumber');
+        userDate = await AsyncStorage.getItem('Date');
         
         console.log("App.js:",userName)
       } catch(e) {
