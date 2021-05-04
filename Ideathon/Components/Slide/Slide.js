@@ -13,7 +13,7 @@ import {
     Image,
     ImageBackground
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ion from 'react-native-vector-icons/Ionicons';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -24,36 +24,6 @@ import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import { useTheme } from 'react-native-paper';
 
-const styles = StyleSheet.create({
-  buttonCircle: {
-    width: 40,
-    height: 40,
-    backgroundColor: 'rgba(0, 0, 0, .2)',
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  slide: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    // backgroundColor: 'blue',
-  },
-  image: {
-    width: 390,
-    height: 300,
-    // marginVertical: 32,
-  },
-  text: {
-    color: 'rgba(34,88,163, 0.8)',
-    textAlign: 'center',
-  },
-  title: {
-    fontSize: 22,
-    color: 'rgb(34,88,163)',
-    textAlign: 'center',
-  },
-});
 const slides = [
     {
       key: 'one',
@@ -106,6 +76,30 @@ export class Slide extends Component {
       </LinearGradient>
     );
   }
+
+
+  _renderNextButton = () => {
+    return (
+      <View style={styles.buttonCircle}>
+        <Ion
+          name="md-arrow-forward-sharp"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+        />
+      </View>
+    );
+  };
+  _renderDoneButton = () => {
+    return (
+      <View style={styles.buttonCircle}>
+        <Ion
+          name="md-checkmark"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+        />
+      </View>
+    );
+  };
   _onDone = () => {
     // User finished the introduction. Show real app through
     // navigation or simply by controlling state
@@ -116,9 +110,50 @@ export class Slide extends Component {
     if (this.state.showRealApp) {
       return <App />;
     } else {
-      return <AppIntroSlider renderItem={this._renderItem} data={slides} onDone={this._onDone}/>;
+      return <AppIntroSlider renderItem={this._renderItem} data={slides} onDone={this._onDone} renderDoneButton={this._renderDoneButton}
+      renderNextButton={this._renderNextButton}/>;
     }
   }
 }
 
 export default Slide
+
+const styles = StyleSheet.create({
+  buttonCircle: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(0, 0, 0, .2)',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  slide: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: 'blue',
+  },
+  image: {
+    width: 390,
+    height: 300,
+    // marginVertical: 32,
+  },
+  text: {
+    color: 'rgba(34,88,163, 0.8)',
+    textAlign: 'center',
+  },
+  title: {
+    fontSize: 22,
+    color: 'rgb(34,88,163)',
+    textAlign: 'center',
+  },
+  buttonCircle: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(0, 0, 0, .2)',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+ 
