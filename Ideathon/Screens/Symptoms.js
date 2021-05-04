@@ -19,7 +19,7 @@ import {SelectMultipleButton} from 'react-native-selectmultiple-button'
 import { Checkbox } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 const ios_blue = "#007AFF";
-const multipleData = ["Fever", "Cold", "Loss of smell", "Loss of taste", "Headache","Pain in chest with deep breaths","Shortness of breath","Sore Throat","Stomach ache","Diarrhea","Tiredness","Sneexing"];
+const multipleData = ["Fever", "Cold", "Loss of smell", "Loss of taste", "Headache","Pain in chest with deep breaths","Shortness of breath","Sore Throat","Stomach ache","Diarrhea"];
 export class Symptoms extends Component {
     constructor(props) {
         super(props);
