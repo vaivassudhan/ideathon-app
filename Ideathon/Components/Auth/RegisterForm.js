@@ -361,7 +361,7 @@ const RegisteForm = ({navigation}) => {
                 </Animatable.View>
                 : null}
             </View> */}
-            <Text style={[styles.text_footer, {
+            {/* <Text style={[styles.text_footer, {
                     color: colors.text,
                     marginTop: 35
                 }]}>PhoneNumber</Text>
@@ -390,8 +390,8 @@ const RegisteForm = ({navigation}) => {
                         size={20}
                     />
                 </Animatable.View>
-                : null}
-            </View>
+                : null} 
+            </View>*/}
             
            
             <View style={styles.button}>
@@ -401,7 +401,7 @@ const RegisteForm = ({navigation}) => {
                         onPress={() => contin()}
                 >
                 <LinearGradient
-                    colors={['#08d4c4', '#01ab9d']}
+                    colors={['#007AFF', 'rgb(54,118,203)']}
                     style={styles.signIn}
                 >
                     <Text style={[styles.textSign, {
