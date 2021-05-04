@@ -12,6 +12,7 @@ import {
     Alert,
     ImageBackground
 } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { Button } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
