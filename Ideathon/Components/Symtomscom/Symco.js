@@ -41,13 +41,21 @@ const readData = async() => {
     }
 }
     const Done=()=>{
-        console.log("vcgfhgfh",userSymtoms)
+        console.log(userSymtoms)
+        console.log("-----------------")
+        console.log("IN DONE FUNC",userSymtoms)
         var dem = JSON.parse(userSymtoms)
+        console.log("Before update DEM",dem)
         var date = getCurrentDate();
         const dic = {
-                Symptoms:props.route.params.selected,
-                Date:date,
+            Symptoms:props.route.params.selected,
+            Date:date,
         }
+        console.log("-----------------")
+        console.log(dem["data"]);
+        console.log("-----------------")
+        dem["data"].push(dic);
+        console.log("After update DEM",dem)
         AddSelectedList(JSON.stringify(dem))
         props.navigation.navigate('Home')
     }
