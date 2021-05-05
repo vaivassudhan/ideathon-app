@@ -44,6 +44,7 @@ export function Home({navigation}){
           setName(userName)
           setGender(userGender)
           setDate(userDate)
+          global.userSymtoms = await AsyncStorage.getItem('Symtoms');
           
         } catch(e) {
           console.log(e);
@@ -92,7 +93,7 @@ export function Home({navigation}){
                         </TouchableOpacity>
                     </Card>
                     <Card style={[styles.cardbutton,]}>
-                    <TouchableOpacity onPress={() =>{navigation.navigate('Report')}} >
+                    <TouchableOpacity onPress={() =>{navigation.navigate('Report',{symptoms:JSON.stringify(userSymtoms)})}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
                             <Text style={styles.buttontext}>Report </Text>
