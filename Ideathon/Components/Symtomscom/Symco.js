@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState , createRef,useEffect , Component} from 'react';
 import { 
     SafeAreaView,
     View, 
@@ -17,11 +17,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { AuthContext } from '../context';
 import { Avatar, Button, Card, Title, Paragraph, Divider  } from 'react-native-paper';
 import AsyncStorage from '@react-native-community/async-storage';
-import { useEffect } from 'react';
 export default function Symco(props) { 
     const { AddSelectedList } = React.useContext(AuthContext);
 
     console.log(props.route.params.selected)
+    const [Arr ,setArr] =useState([])
+    const [Symp,setSymp] = useState('')
 
     const getCurrentDate=()=>{
         var date = new Date().getDate();
@@ -36,9 +37,8 @@ export default function Symco(props) {
     for(var i=0;i<symp.length;i++){
         global.a.push(symp[i].label)
     }
-    if(global.a.length>3){
-        console.log('Consult a Doctor')
-    }
+    setArr(a)
+    setSymp(symp)
 }, [props.route.params.selected])
 
 const readData = async() => {
@@ -77,14 +77,14 @@ const readData = async() => {
                 <View>
                     <Card style={styles.card}>
                         
-                            {global.a.length>3 && (
+                            {Arr.length>3 && (
                                 <Card.Content>
                                 <Title style={styles.title}>Please consult a Doctor</Title>
                                 <Divider/>
                                 <Paragraph style={{fontWeight: 'bold'}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
                                 </Card.Content>
                             )}
-                            {global.a.length<=3 && symp.map((u,i)=>{
+                            {/* {Arr.length<=3 && Symp.map((u,i)=>{
                                 return (
                                 <Card.Content>
                                 <Title style={styles.title}>Remedy for </Title>
@@ -92,11 +92,11 @@ const readData = async() => {
                                 <Paragraph style={{fontWeight: 'bold'}}>Allo<Paragraph style={{color: '#34495e'}}> : show remedies</Paragraph></Paragraph>
                                 </Card.Content>
                                 )}
-                            )}
+                            )} */}
                         <Divider/>
-                        <Card.Content>
+                        {/* <Card.Content>
                         <Paragraph style={{fontWeight: 'bold'}}>Status<Paragraph style={{color: '#000080',fontWeight:'bold'}}> : On Progress With SSE</Paragraph></Paragraph>
-                        </Card.Content>
+                        </Card.Content> */}
                     </Card>
                 </View>
                 <View style={{alignSelf:'flex-end'}}>
