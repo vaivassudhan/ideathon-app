@@ -1,4 +1,4 @@
-import React, { Component ,useEffect} from 'react'
+import React, { Component ,useEffect,useState} from 'react'
 import { 
     SafeAreaView,
     View, 
@@ -17,21 +17,45 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Avatar, Button, Card, Title, Paragraph, Divider } from 'react-native-paper';
 export default function Report (props) {
+
+    const [Symptoms , setSymptoms]=useState({})
+    
+    console.log("hvhghjdghd",props)
+
     useEffect(() => {
         readData();
-    }, [props.route.params.symptoms])
+    }, [props.route.params.count])
 
     const readData = async() => {
         try {
           global.userSymtoms = await AsyncStorage.getItem('Symtoms');
-          global.Symp = JSON.parse(userSymtoms)
-          console.log("fdahgcsdfhgj",Symp.data[0].Date)
+          console.log(userSymtoms)
+          await setSymptoms(JSON.parse(userSymtoms))
+        //   global.Symp = JSON.parse(userSymtoms)
+        //   console.log("fdahgcsdfhgj",Symp.data[0].Date)
         } catch(e) {
           console.log(e);
         }
     }
-return (
-    <View>
+
+    console.log(Symptoms.data)
+if(!Symptoms.data){
+    return(
+        <View>
+         <Text style={styles.text_header}>Report</Text>
+        <Card style={styles.card}>
+     <Card.Content>
+         <Title style={styles.title_nodata}>No Report Found</Title>
+     </Card.Content>
+       </Card>
+       </View>
+      );
+
+} 
+if(Symptoms.data){
+    
+    return (
+        <View>
         <View style={{backgroundColor:'rgb(54,118,203)'}}>
             <StatusBar
             animated={true}
@@ -41,7 +65,7 @@ return (
             </SafeAreaView>
         </View>
         <View>
-        {Symp.data.map((u,i) => {
+        {Symptoms.data.map((u,i) => {
             return(
                 <View key={i}>
                 <Card style={styles.card}>
@@ -56,17 +80,18 @@ return (
 
                 </View>
             );
-        })}
+        })} 
         </View>   
     </View>
         )
     }
-
-const styles = StyleSheet.create({
-card: {
-    alignContent:'center',
-    margin: 16,
-    marginTop:15,
+    
+}
+    const styles = StyleSheet.create({
+        card: {
+            alignContent:'center',
+            margin: 16,
+            marginTop:15,
     backgroundColor:'#fff',
     borderRadius:12,
     marginBottom:15,
@@ -84,5 +109,15 @@ card: {
     cardText:{
       fontSize:30,
       padding:10
-    }
+    },
+    text_header: {
+        color: '#34495e',
+        fontWeight: 'bold',
+        fontSize: 20,
+        textAlign:'center'
+      },
+      title_nodata:{
+        fontWeight: 'bold',
+        textAlign:'center',
+      },
 });
