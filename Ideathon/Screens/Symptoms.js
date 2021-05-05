@@ -17,7 +17,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { TagSelect } from 'react-native-tag-select';
 import { Button } from 'react-native-paper';
  
-export default class App extends React.Component {
+export default class Symptoms extends React.Component {
   render() {
     const data = [
       { id: 1, label: 'Fever' },
