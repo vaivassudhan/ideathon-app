@@ -31,6 +31,11 @@ export default function Symco(props) {
   }
   useEffect(() => {
     readData();
+    global.symp=JSON.parse(props.route.params.selected)
+    global.a=[]
+    for(var i=0;i<symp.length;i++){
+        a.push(symp[i].label)
+    }
 }, [props.route.params.selected])
 
 const readData = async() => {
@@ -41,19 +46,16 @@ const readData = async() => {
     }
 }
     const Done=()=>{
-        console.log(userSymtoms)
-        console.log("-----------------")
-        console.log("IN DONE FUNC",userSymtoms)
         var dem = JSON.parse(userSymtoms)
-        console.log("Before update DEM",dem)
         var date = getCurrentDate();
+        var today = new Date(),
+        time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
         const dic = {
-            Symptoms:props.route.params.selected,
+            Symptoms:a,
             Date:date,
+            Time:time
         }
-        console.log("-----------------")
         console.log(dem["data"]);
-        console.log("-----------------")
         dem["data"].push(dic);
         console.log("After update DEM",dem)
         AddSelectedList(JSON.stringify(dem))
