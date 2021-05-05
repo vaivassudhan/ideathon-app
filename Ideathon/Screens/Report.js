@@ -24,12 +24,12 @@ export default function Report (props) {
 
     useEffect(() => {
         readData();
+
     }, [props.route.params.count])
 
     const readData = async() => {
         try {
           global.userSymtoms = await AsyncStorage.getItem('Symtoms');
-          console.log(userSymtoms)
           await setSymptoms(JSON.parse(userSymtoms))
         //   global.Symp = JSON.parse(userSymtoms)
         //   console.log("fdahgcsdfhgj",Symp.data[0].Date)
@@ -39,21 +39,6 @@ export default function Report (props) {
     }
 
     console.log(Symptoms.data)
-if(!Symptoms.data){
-    return(
-        <View>
-         <Text style={styles.text_header}>Report</Text>
-        <Card style={styles.card}>
-     <Card.Content>
-         <Title style={styles.title_nodata}>No Report Found</Title>
-     </Card.Content>
-       </Card>
-       </View>
-      );
-
-} 
-if(Symptoms.data){
-    
     return (
         <View>
         <View style={{backgroundColor:'rgb(54,118,203)'}}>
@@ -64,29 +49,48 @@ if(Symptoms.data){
             <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => props.navigation.navigate('Home')}> Back</Icon.Button>   
             </SafeAreaView>
         </View>
-        <View>
+        {
+            Symptoms.data &&(
+
+                <View>
+                     <Text style={styles.text_header}>Report</Text>
         {Symptoms.data.map((u,i) => {
             return(
                 <View key={i}>
                 <Card style={styles.card}>
                <Card.Content>
-                   <Title style={styles.title}>{u.Date}</Title>
+                   <Title style={styles.title}>Symptoms</Title>
                    <Divider/>
-                   <Paragraph style={{fontWeight: 'bold'}}>Time<Paragraph style={{color: '#34495e'}}> : {u.Time}</Paragraph></Paragraph>
                    <Paragraph style={{fontWeight: 'bold'}}>Symptoms<Paragraph style={{color: '#34495e'}}> : {u.Symptoms}</Paragraph></Paragraph>
+                   <Paragraph style={{fontWeight: 'bold'}}>Time<Paragraph style={{color: '#34495e'}}> : {u.Time}</Paragraph></Paragraph>
+                   <Paragraph style={{fontWeight: 'bold'}}>Date<Paragraph style={{color: '#34495e'}}> : {u.Date}</Paragraph></Paragraph>
                </Card.Content>
                <Divider/>
             </Card>
-
-                </View>
+        </View>
             );
         })} 
-        </View>   
+        </View>  
+        )
+        }
+        {
+            Symptoms.data==0 && (
+                <View>
+                   
+                    <Card style={styles.card}>
+                    <Card.Content>
+                    <Title style={styles.title_nodata}>No Report Found</Title>
+                    </Card.Content>
+                    </Card>
+                </View> 
+            )
+        }
+        
+         
     </View>
         )
     }
     
-}
     const styles = StyleSheet.create({
         card: {
             alignContent:'center',
