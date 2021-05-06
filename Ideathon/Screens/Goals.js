@@ -49,7 +49,7 @@ export class Breathing extends Component {
                             <Text style={styles.cardtext2}>Healthy Diet</Text>
                         </Card.Content>
                         <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Maintain proper healthy diet</Text>
+                            <Text style={styles.cardvalue}>Take healthy diet as your body needs enough nutrition to fight the virus</Text>
                         </Card.Content>
                     </Card>
                     {/* Water card */}
@@ -59,7 +59,17 @@ export class Breathing extends Component {
                             <Text style={styles.cardtext2}>Water</Text>
                         </Card.Content>
                         <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Maintain proper healthy diet</Text>
+                            <Text style={styles.cardvalue}>Drink more water, average adult body needs 2.5 Litres (10 glasses) of water</Text>
+                        </Card.Content>
+                    </Card>
+                    {/* Stay home card */}
+                    <Card style={styles.cardstyle}>
+                        <Card.Content style={{flexDirection:'row'}}>
+                            <Image style={styles.cardlogo} source={require('../assets/healthy.jpeg')}/> 
+                            <Text style={styles.cardtext2}>Isolation</Text>
+                        </Card.Content>
+                        <Card.Content style={{flexDirection:'row'}}>
+                            <Text style={styles.cardvalue}>Stay Home, Stay safe</Text>
                         </Card.Content>
                     </Card>
                 </View>
