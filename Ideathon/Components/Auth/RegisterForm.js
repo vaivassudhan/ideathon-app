@@ -287,9 +287,9 @@ const RegisteForm = ({navigation}) => {
                 <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
                 <View style={{flexDirection:'row'}}>
                     <RadioButton value="Male" color='rgb(34,88,163)'/>
-                    <Text style={{marginTop:7}}>Male</Text>
+                    <Text style={{marginTop:10,marginRight:8}}>Male</Text>
                     <RadioButton value="Female" color='rgb(34,88,163)'/>
-                    <Text style={{marginTop:7}}>Female</Text>       
+                    <Text style={{marginTop:10}}>Female</Text>       
                 </View>
                 </RadioButton.Group>
                 {/* <TextInput 

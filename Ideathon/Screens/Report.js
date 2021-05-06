@@ -20,7 +20,6 @@ export default function Report (props) {
 
     const [Symptoms , setSymptoms]=useState({})
     
-    console.log("hvhghjdghd",props)
 
     useEffect(() => {
         readData();
@@ -118,7 +117,8 @@ export default function Report (props) {
         color: '#34495e',
         fontWeight: 'bold',
         fontSize: 20,
-        textAlign:'center'
+        textAlign:'center',
+        marginTop:12,
       },
       title_nodata:{
         fontWeight: 'bold',
