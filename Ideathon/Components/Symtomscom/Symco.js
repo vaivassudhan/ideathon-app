@@ -79,7 +79,7 @@ const readData = async() => {
         props.navigation.navigate('Home')
     }
     return (
-        <View>
+        <View style={{flex:1}}>
                 <View style={{backgroundColor:'rgb(54,118,203)'}}>
                     <StatusBar
                     animated={true}
@@ -88,8 +88,8 @@ const readData = async() => {
                     <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => props.navigation.navigate('Symptoms')}> Back</Icon.Button>   
                     </SafeAreaView>
                 </View>
-                <View>
-                    
+                <ScrollView>
+                <View style={{flex:1,}}>
                         
                             {Arr.length>3 && (
                             <Card style={styles.card}>
@@ -106,63 +106,79 @@ const readData = async() => {
                             <View>
                             <Card style={styles.card}>
                                 <Card.Content>
-                                <Title style={styles.title}></Title>
+                                <Title style={[styles.title,{alignSelf:'center'}]}>Allopathy</Title>
                                 <Divider/>
-                            {
-                                Allo.map((k,i)=>{
-                                    return(
-                                        <View key={i}>
-                                        <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : {k}</Paragraph></Paragraph>
-                                        </View>
-                                    )
-                                })
-                            }
-                                
-                                </Card.Content>
-                            </Card>
-                            <Card style={styles.card}>
-                            <Card.Content>
-                            <Title style={styles.title}></Title>
-                            <Divider/>
-                            {
-                                Homeo.map((k,i)=>{
-                                    return(
-                                        <View key={i}>
-                                        <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : {k}</Paragraph></Paragraph>
-                                        </View>
-                                    )
-                                })
-                            }
+                                <View style={{flexDirection:'row'}}>
+                                <Image style={{width:80,height:80,marginRight:10}} source={require('../../assets/allopathy.jpg')}/>
+                                <View style={{flex:1,flexDirection:'column'}}>
+                                {
+                                    Allo.map((k,i)=>{
+                                        return(
+                                           
+                                                <View style={{flex:1,flexDirection:'column'}} key={i}>
+                                                <Paragraph style={{width:'100%',flex:1,flexWrap: 'wrap',color: '#34495e',fontSize:18}}>{k}</Paragraph>
+                                                </View>
+                                        )
+                                    })
+                                }
+                                </View>
+                               </View> 
                             </Card.Content>
                             </Card>
                             <Card style={styles.card}>
                             <Card.Content>
-                            <Title style={styles.title}></Title>
+                            <Title style={[styles.title,{alignSelf:'center'}]}>Homeopathy</Title>
                             <Divider/>
+                            <View style={{flexDirection:'row'}}>
+                                <Image style={{width:80,height:80,marginRight:10}} source={require('../../assets/homeopathy.jpg')}/>
+                            <View style={{flex:1,flexDirection:'column'}}>
                             {
-                                Ayur.map((k,i)=>{
+                                Homeo.map((k,i)=>{
                                     return(
-                                        <View key={i}>
-                                        <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : {k}</Paragraph></Paragraph>
+                                        <View style={{flex:1}} key={i} key={i}>
+                                        <Paragraph style={{flex:1,flexWrap: 'wrap',color: '#34495e',fontSize:18}}>{k}</Paragraph>
                                         </View>
                                     )
                                 })
                             }
+                            </View>
+                            </View>
+                            </Card.Content>
+                            </Card>
+                            <Card style={styles.card}>
+                            <Card.Content>
+                            <Title style={[styles.title,{alignSelf:'center'}]}>Ayurvedha</Title>
+                            <Divider/>
+                            <View style={{flexDirection:'row'}}>
+                                <Image style={{width:100,height:80,marginRight:10}} source={require('../../assets/ayurvedha.png')}/>
+                                <View style={{flex:1,flexDirection:'column'}}>
+                                {
+                                    Ayur.map((k,i)=>{
+                                        return(
+                                            <View style={{flex:1}} key={i}>
+                                        <Paragraph style={{flex:1,flexWrap: 'wrap',color: '#34495e',fontSize:18}}>{k}</Paragraph>
+                                            </View>
+                                        )
+                                    })
+                                }
+                                </View>
+                            </View>
                             </Card.Content>
                             </Card>
                             </View>)}
                             
-                        <Divider/>
+                        {/* <Divider/> */}
                         {/* <Card.Content>
                         <Paragraph style={{fontWeight: 'bold'}}>Status<Paragraph style={{color: '#000080',fontWeight:'bold'}}> : On Progress With SSE</Paragraph></Paragraph>
                         </Card.Content> */}
-                    
                 </View>
                 <View style={{alignSelf:'flex-end'}}>
-                <Button style={[styles.nextbutton,{backgroundColor:'rgb(34,88,163)', marginRight:20, marginTop:10}]} mode="contained" onPress={() => Done()}>
+                <Button style={[styles.nextbutton,{backgroundColor:'rgb(51,124,247)', marginRight:20}]} mode="contained" onPress={() => Done()}>
                         Done
                 </Button>
                 </View>
+                </ScrollView>    
+                
         </View>
     )
 }
@@ -172,7 +188,7 @@ const styles = StyleSheet.create({
         alignContent:'center',
         margin: 16,
         marginTop:15,
-backgroundColor:'#fff',
+
 borderRadius:12,
 marginBottom:15,
 width:'93%',
