@@ -25,23 +25,26 @@ export class Breathing extends Component {
             animated={true}
             backgroundColor="rgb(54,118,203)"/>
             <SafeAreaView>
-            <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => this.props.navigation.navigate('Home')}> Back</Icon.Button>   
+                <View style={{flexDirection:'row'}}>
+                <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => this.props.navigation.navigate('Home')}> </Icon.Button>   
+                <Text style={[styles.head,{alignSelf:'center',marginLeft:'30%'}]}>Goals</Text>
+                </View>
             </SafeAreaView>
             </View>
             <View style={styles.container}>
-                <View style={styles.headview}>
-                    <Text style={styles.head}>Goals</Text>
-                </View>
                 <View>
+                <ScrollView>
                     <Card style={styles.cardstyle}>
                         <Card.Content style={{flexDirection:'row'}}>
                             <Image style={styles.cardlogo} source={require('../assets/sleep.png')}/> 
                             <Text style={styles.cardtext2}>Sleep for 7-9 hours</Text>
                         </Card.Content>
                         <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>To know more about sleep and covid</Text>
+                            {/* <Text style={styles.cardvalue}>Take rest. As you fall into the deeper stages of sleep, your muscles will see an increase in blood flow, which brings along oxygen and nutrients that that help recover and repair muscles and regenerate cells.To know more about sleep and covid</Text> */}
+                            <Paragraph style={styles.cardvalue}>Take rest. As you fall into the deeper stages of sleep, 
+                            your muscles will see an increase in blood flow, which brings along oxygen and nutrients that that help recover and repair muscles and regenerate cells.</Paragraph>
+                            {/* <Text style={[styles.cardvalue,{color:'rgb(54,118,203)',textDecorationLine: 'underline',}]} onPress={() => Linking.openURL('https://www.physio-pedia.com/COVID-19_and_Sleep')}>    Click Here</Text> */}
                         </Card.Content>
-                            <Text style={{alignSelf:'center' ,paddingTop:10}} onPress={() => Linking.openURL('https://www.physio-pedia.com/COVID-19_and_Sleep')}>    Click Here</Text>
                     </Card>
                     {/* healthy card */}
                     <Card style={styles.cardstyle}>
@@ -50,29 +53,30 @@ export class Breathing extends Component {
                             <Text style={styles.cardtext2}>Healthy Diet</Text>
                         </Card.Content>
                         <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Take healthy diet as your body needs enough nutrition to fight the virus</Text>
+                            <Paragraph style={styles.cardvalue}>Take healthy diet as your body needs enough nutrition to fight the virus.The nutrients that proper nutrition provides supply their body with much needed energy. The person feels better mentally, physically, and emotionally.</Paragraph>
                         </Card.Content>
                     </Card>
                     {/* Water card */}
                     <Card style={styles.cardstyle}>
                         <Card.Content style={{flexDirection:'row'}}>
                             <Image style={styles.cardlogo} source={require('../assets/Water-icon.png')}/> 
-                            <Text style={styles.cardtext2}>Water</Text>
+                            <Text style={styles.cardtext2}>Drink water (10 glasses)</Text>
                         </Card.Content>
                         <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Drink more water, average adult body needs 2.5 Litres (10 glasses) of water</Text>
+                            <Text style={styles.cardvalue}>Drinking water to stay hydrated is important for those participating in physical therapy programs. Maintaining the body’s hydration is critical to your recovery</Text>
                         </Card.Content>
                     </Card>
                     {/* Stay home card */}
                     <Card style={styles.cardstyle}>
                         <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo} source={require('../assets/healthy.jpeg')}/> 
+                            <Image style={styles.cardlogo2} source={require('../assets/stayhome.jpeg')}/> 
                             <Text style={styles.cardtext2}>Isolation</Text>
                         </Card.Content>
                         <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Stay Home, Stay safe</Text>
+                            <Text style={styles.cardvalue}>Stay in a well-ventilated single-room preferably with an attached/separate toilet.</Text>
                         </Card.Content>
                     </Card>
+                </ScrollView>
                 </View>
             </View>
         </View>
@@ -83,7 +87,7 @@ export class Breathing extends Component {
 export default Breathing
 const styles = StyleSheet.create({
     container: {
-        margin:12,
+        margin:4,
         justifyContent:'center',
         alignItems:'center',
       },
@@ -98,13 +102,14 @@ const styles = StyleSheet.create({
         marginRight:8
       },
       cardlogo2:{
-        width: 50,
+        width: 80,
         height:50,
         marginRight:5
       },
       head: {
-          marginTop:4,
-          fontSize:32,
+        //   marginTop:4,
+          fontSize:24,
+          color:'white',
       },
       headview: {
         marginTop:5,
@@ -116,7 +121,8 @@ const styles = StyleSheet.create({
       cardstyle:{
         marginLeft:12,
         marginRight:12,
-        marginTop:12,
+        marginTop:8,
+        marginBottom:2,
         flexDirection:'row',
         shadowColor: "#000",
         shadowOffset: {
@@ -138,7 +144,7 @@ const styles = StyleSheet.create({
       cardtext2:{
         color:'rgb(54,118,203)',
         fontSize:22,
-        marginTop:12,
+        marginTop:18,
         margin:12,
         width:'70%'
       },
@@ -157,7 +163,8 @@ const styles = StyleSheet.create({
       },
       cardvalue:{
         color:'black',
-        marginTop:12
+        // marginTop:12,
+        margin:20,
       }
     
 });
