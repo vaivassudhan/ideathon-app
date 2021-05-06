@@ -9,6 +9,7 @@ import {
     TextInput,
     Platform,
     StyleSheet ,
+    Linking,
     StatusBar,
     Alert,
     Image,
@@ -39,8 +40,8 @@ export class Breathing extends Component {
                         </Card.Content>
                         <Card.Content style={{flexDirection:'row'}}>
                             <Text style={styles.cardvalue}>To know more about sleep and covid</Text>
-                            {/* <Text onPress={() => Linking.openURL('https://www.physio-pedia.com/COVID-19_and_Sleep')}>Click Here</Text> */}
                         </Card.Content>
+                            <Text style={{alignSelf:'center' ,paddingTop:10}} onPress={() => Linking.openURL('https://www.physio-pedia.com/COVID-19_and_Sleep')}>    Click Here</Text>
                     </Card>
                     {/* healthy card */}
                     <Card style={styles.cardstyle}>
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
           fontSize:32,
       },
       headview: {
-        marginTop:32,
+        marginTop:5,
         marginLeft:28,
         marginRight:32,
         marginBottom:14,
