@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Animated, Easing } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { View, StyleSheet, Animated, Easing ,StatusBar,SafeAreaView} from 'react-native';
 
-const WaterPlanet = (props) => {
+ export default function WaterPlanet ({navigation}) {
   const [scaleValue] = useState(new Animated.Value(0))
 
   const waterAnimation = () => {
@@ -25,16 +26,26 @@ const WaterPlanet = (props) => {
   }, []);
 
   return (
-      <View style={styles.container}>
+    <View>
+    <View style={{backgroundColor:'rgb(54,118,203)'}}>
+        <StatusBar
+        animated={true}
+        backgroundColor="rgb(54,118,203)"/>
+        <SafeAreaView>
+        <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => navigation.navigate('Home')}> Back</Icon.Button>   
+        </SafeAreaView>
+        
+    </View>
+    <View style={styles.container}>
         <Animated.Image
           source={require('../assets/breathing.gif')}
           style={[styles.pic]}
         />
       </View>
+      </View>
   );
 }
 
-export default () => <WaterPlanet/>
 
 const styles = StyleSheet.create({
   pic: {
@@ -42,7 +53,7 @@ const styles = StyleSheet.create({
     width: 480,
   },
   container: {
-    flex: 1,
+    marginTop:'45%',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
