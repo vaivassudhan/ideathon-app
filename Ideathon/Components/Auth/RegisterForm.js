@@ -410,9 +410,20 @@ const RegisteForm = ({navigation}) => {
             
            
             <View style={styles.button}>
-            <Button style={[styles.signIn,{backgroundColor:'rgb(34,88,163)'}]} mode="contained" onPress={() => contin()}>
-                        Continue
-                </Button>
+            <TouchableOpacity
+                    style={styles.signIn}
+                    // onPress={() => {loginHandle( data.username, data.password )}}
+                        onPress={() => contin()}
+                >
+                <LinearGradient
+                    colors={['#007AFF', 'rgb(54,118,203)']}
+                    style={styles.signIn}
+                >
+                    <Text style={[styles.textSign, {
+                        color:'#fff'
+                    }]}>Continue</Text>
+                </LinearGradient>
+                </TouchableOpacity>
             </View>
         </Animatable.View>
         </ScrollView>
