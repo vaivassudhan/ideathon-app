@@ -18,7 +18,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import * as Notifications from 'expo-notifications'
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
-import { useTheme } from 'react-native-paper';
+import { useTheme ,RadioButton, Button,} from 'react-native-paper';
 import axios from 'axios';
 import { AuthContext } from '../context';
 
@@ -32,6 +32,7 @@ const RegisteForm = ({navigation}) => {
     const [Address , setAddress]=useState('');
     const [City , setCity]=useState('');
     const [PhoneNumber , setPhoneNumber]=useState('');
+    const [value, setValue] = React.useState('first');
 
     const [data, setData] = React.useState({
         Name:'',
@@ -40,6 +41,8 @@ const RegisteForm = ({navigation}) => {
         Address:'',
         City:'',
         PhoneNumber:'',
+        value: '',
+        
 
         check_textNameChange: false,
         check_textAgeChange: false,
@@ -68,7 +71,7 @@ const RegisteForm = ({navigation}) => {
             const dic= {
                 Name:Name,
                 Age:Age,
-                Gender:Gender,
+                Gender:value,
                 PhoneNumber:PhoneNumber,
                 Date:date,
                 Symtoms:JSON.stringify(dem)
@@ -240,11 +243,13 @@ const RegisteForm = ({navigation}) => {
                     marginTop: 35
                 }]}>Age</Text>
             <View style={styles.action}>
+            <View >
                 <FontAwesome 
                     name="child"
                     color={colors.text}
                     size={20}
                 />
+            </View>
                 <TextInput 
                     placeholder="Your Age"
                     placeholderTextColor="#666666"
@@ -271,13 +276,23 @@ const RegisteForm = ({navigation}) => {
                     color: colors.text,
                     marginTop: 35
                 }]}>Gender</Text>
-            <View style={styles.action}>
+            <View style={styles.action_radio}>
+            <View style={{marginTop:7}}>
                 <FontAwesome 
                     name="venus-mars"
                     color={colors.text}
                     size={20}
                 />
-                <TextInput 
+            </View>
+                <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
+                <View style={{flexDirection:'row'}}>
+                    <RadioButton value="Male" />
+                    <Text style={{marginTop:7}}>Male</Text>
+                    <RadioButton value="Female" />
+                    <Text style={{marginTop:7}}>Female</Text>       
+                </View>
+                </RadioButton.Group>
+                {/* <TextInput 
                     placeholder="Your Gender"
                     placeholderTextColor="#666666"
                     style={[styles.textInput, {
@@ -285,7 +300,7 @@ const RegisteForm = ({navigation}) => {
                     }]}
                     autoCapitalize="none"
                     onChangeText={(Gender) => textGenderChange(Gender)}
-                />
+                /> */}
                 {data.check_textGenderChange ? 
                 <Animatable.View
                     animation="bounceIn"
@@ -395,20 +410,9 @@ const RegisteForm = ({navigation}) => {
             
            
             <View style={styles.button}>
-                <TouchableOpacity
-                    style={styles.signIn}
-                    // onPress={() => {loginHandle( data.username, data.password )}}
-                        onPress={() => contin()}
-                >
-                <LinearGradient
-                    colors={['#007AFF', 'rgb(54,118,203)']}
-                    style={styles.signIn}
-                >
-                    <Text style={[styles.textSign, {
-                        color:'#fff'
-                    }]}>Continue</Text>
-                </LinearGradient>
-                </TouchableOpacity>
+            <Button style={[styles.signIn,{backgroundColor:'rgb(34,88,163)'}]} mode="contained" onPress={() => Done()}>
+                        Continue
+                </Button>
             </View>
         </Animatable.View>
         </ScrollView>
@@ -454,6 +458,11 @@ const styles = StyleSheet.create({
         borderBottomColor: '#f2f2f2',
         paddingBottom: 5
     },
+    action_radio: {
+        flexDirection: 'row',
+        marginTop: 10,
+        paddingBottom: 5
+    },
     actionError: {
         flexDirection: 'row',
         marginTop: 10,
@@ -463,7 +472,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         flex: 1,
-        marginTop: Platform.OS === 'ios' ? 0 : -12,
+        marginTop: Platform.OS === 'ios' ? 0 : -5,
         paddingLeft: 10,
         color: '#05375a',
     },
