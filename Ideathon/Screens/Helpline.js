@@ -21,6 +21,7 @@ export class Helpline extends Component {
                 <View style={styles.container}>
                 <ScrollView>
                 { helpline_nums.map((item, key)=>(
+                    <View key={key}>
                     <View>
                     <Text key={key} style={styles.statename}>{item.state}</Text>
                     <View style={{flexDirection:'row'}}>
@@ -33,6 +34,7 @@ export class Helpline extends Component {
                         borderBottomWidth: 1,
                     }}
                     />
+                    </View>
                     </View>
                 ))}
                     </ScrollView>
