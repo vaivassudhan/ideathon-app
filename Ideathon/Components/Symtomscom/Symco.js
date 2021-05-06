@@ -23,8 +23,9 @@ export default function Symco(props) {
 
     console.log(props.route.params.selected)
     const [Arr ,setArr] =useState([])
-    const [Symp,setSymp] = useState('')
-
+    const [Allo,setAllo] = useState([])
+    const [Homeo,setHomeo] = useState([])
+    const [Ayur,setAyur] = useState([])
     const getCurrentDate=()=>{
         var date = new Date().getDate();
         var month = new Date().getMonth() + 1;
@@ -36,13 +37,22 @@ export default function Symco(props) {
     global.symp=JSON.parse(props.route.params.selected)
     global.a=[]
     global.sr=[]
+    global.remedy={
+        allo:[],
+        homeo:[],
+        ayur:[]
+    }
     for(var i=0;i<symp.length;i++){
         global.a.push(symp[i].label);
-        global.sr.push({label:symp[i].label,allo:symrem[symp[i].id-1].allo,homeo:symrem[symp[i].id-1].homeo,ayur:symrem[symp[i].id-1].ayur });
+        global.remedy.allo.push(symrem[symp[i].id-1].allo);
+        global.remedy.homeo.push(symrem[symp[i].id-1].homeo);
+        global.remedy.ayur.push(symrem[symp[i].id-1].ayur);
     }
     console.log(global.a)
     setArr(a)
-    setSymp(symp)
+    setAllo(remedy.allo)
+    setHomeo(remedy.homeo)
+    setAyur(remedy.ayur)
 }, [props.route.params.selected])
 
 const readData = async() => {
@@ -92,17 +102,30 @@ const readData = async() => {
                                 </Card.Content>
                             </Card>
                             )}
-                            {Arr.length<=3 && Arr.map((u,symptom)=>{
+                            {Arr.length<=3 && (
+                            <View>
                             <Card style={styles.card}>
                                 <Card.Content>
-                                <Title style={styles.title}>{u.label}</Title>
+                                <Title style={styles.title}></Title>
                                 <Divider/>
                                 <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
                                 </Card.Content>
                             </Card>
-                            })
-
-                            }
+                            <Card style={styles.card}>
+                            <Card.Content>
+                            <Title style={styles.title}></Title>
+                            <Divider/>
+                            <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
+                            </Card.Content>
+                            </Card>
+                            <Card style={styles.card}>
+                            <Card.Content>
+                            <Title style={styles.title}></Title>
+                            <Divider/>
+                            <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
+                            </Card.Content>
+                            </Card>
+                            </View>)}
                             
                         <Divider/>
                         {/* <Card.Content>
