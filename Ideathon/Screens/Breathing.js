@@ -27,17 +27,8 @@ const WaterPlanet = (props) => {
   return (
       <View style={styles.container}>
         <Animated.Image
-          source={require('../assets/water-planet.png')}
-          style={[styles.pic, {
-            transform: [
-              {
-                scale: scaleValue.interpolate({
-                  inputRange: [0, 0.5, 1],
-                  outputRange: [1, 1.2, 1]
-                })
-              }
-            ]
-          }]}
+          source={require('../assets/breathing.gif')}
+          style={[styles.pic]}
         />
       </View>
   );
@@ -47,8 +38,8 @@ export default () => <WaterPlanet/>
 
 const styles = StyleSheet.create({
   pic: {
-    height: 140,
-    width: 180,
+    height: 400,
+    width: 480,
   },
   container: {
     flex: 1,
