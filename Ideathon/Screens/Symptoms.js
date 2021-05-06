@@ -48,7 +48,10 @@ export default class Symptoms extends React.Component {
                     </Text>
                     <View style={styles.symptom_list}>
                     <TagSelect
+                      theme="info"
                         data={data}
+                        itemStyle={styles.customItem}
+                    
                         ref={(tag) => {
                               this.tag = tag;
                         }}
@@ -56,7 +59,7 @@ export default class Symptoms extends React.Component {
                       </View>
                 </View>
                 <View style={{alignSelf:'flex-end'}}>
-                <Button style={[styles.nextbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained" onPress={() => this.props.navigation.navigate('Symco',{selected:JSON.stringify(this.tag.itemsSelected)})}>
+                <Button style={[styles.nextbutton,{backgroundColor:'rgb(51,124,247)', marginRight:20, marginTop:'70%'}]} mode="contained" onPress={() => this.props.navigation.navigate('Symco',{selected:JSON.stringify(this.tag.itemsSelected)})}>
                         Next
                 </Button>
                 </View>
