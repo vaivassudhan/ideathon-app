@@ -17,6 +17,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { AuthContext } from '../context';
 import { Avatar, Button, Card, Title, Paragraph, Divider  } from 'react-native-paper';
 import AsyncStorage from '@react-native-community/async-storage';
+import symrem from '../../Data/symrem';
 export default function Symco(props) { 
     const { AddSelectedList } = React.useContext(AuthContext);
 
@@ -34,9 +35,12 @@ export default function Symco(props) {
     readData();
     global.symp=JSON.parse(props.route.params.selected)
     global.a=[]
+    global.sr=[]
     for(var i=0;i<symp.length;i++){
-        global.a.push(symp[i].label)
+        global.a.push(symp[i].label);
+        global.sr.push({label:symp[i].label,allo:symrem[symp[i].id-1].allo,homeo:symrem[symp[i].id-1].homeo,ayur:symrem[symp[i].id-1].ayur });
     }
+    console.log(global.a)
     setArr(a)
     setSymp(symp)
 }, [props.route.params.selected])
@@ -75,32 +79,39 @@ const readData = async() => {
                     </SafeAreaView>
                 </View>
                 <View>
-                    <Card style={styles.card}>
+                    
                         
                             {Arr.length>3 && (
+                            <Card style={styles.card}>
                                 <Card.Content>
                                 <Title style={styles.title}>Please consult a Doctor</Title>
                                 <Divider/>
-                                <Paragraph style={{fontWeight: 'bold'}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
-                                </Card.Content>
-                            )}
-                            {/* {Arr.length<=3 && Symp.map((u,i)=>{
-                                return (
-                                <Card.Content>
-                                <Title style={styles.title}>Remedy for </Title>
+                                <Paragraph style={{fontWeight: 'bold',paddingTop:25}}>Please Consult a doctor</Paragraph>
                                 <Divider/>
-                                <Paragraph style={{fontWeight: 'bold'}}>Allo<Paragraph style={{color: '#34495e'}}> : show remedies</Paragraph></Paragraph>
+                                <Paragraph style={{fontWeight: 'bold',paddingTop:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
                                 </Card.Content>
-                                )}
-                            )} */}
+                            </Card>
+                            )}
+                            {Arr.length<=3 && Arr.map((u,symptom)=>{
+                            <Card style={styles.card}>
+                                <Card.Content>
+                                <Title style={styles.title}>{u.label}</Title>
+                                <Divider/>
+                                <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
+                                </Card.Content>
+                            </Card>
+                            })
+
+                            }
+                            
                         <Divider/>
                         {/* <Card.Content>
                         <Paragraph style={{fontWeight: 'bold'}}>Status<Paragraph style={{color: '#000080',fontWeight:'bold'}}> : On Progress With SSE</Paragraph></Paragraph>
                         </Card.Content> */}
-                    </Card>
+                    
                 </View>
                 <View style={{alignSelf:'flex-end'}}>
-                <Button style={[styles.nextbutton,{backgroundColor:'rgb(34,88,163)'}]} mode="contained" onPress={() => Done()}>
+                <Button style={[styles.nextbutton,{backgroundColor:'rgb(34,88,163)', marginRight:20, marginTop:10}]} mode="contained" onPress={() => Done()}>
                         Done
                 </Button>
                 </View>
