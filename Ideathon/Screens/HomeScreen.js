@@ -84,7 +84,7 @@ export function Home({navigation}){
                 <View style={styles.cardrow}>
                 <Card style={styles.daycard}>
                     <Card.Content>
-                        <Text style={styles.daycardtext}>{Days} out of 14 days </Text>
+                        <Text style={styles.daycardtext}> {Days} out of 14 days </Text>
                         {/* <Text style={styles.daycardtext}>{userDate}</Text> */}
                     </Card.Content>
                 </Card>
@@ -161,7 +161,7 @@ const styles= StyleSheet.create({
     welcometext:{
         fontSize:20,
         marginTop:12,
-        marginLeft:12,
+        // marginLeft:12,
         fontWeight:"700",
     },
     cardrow:{
