@@ -26,7 +26,7 @@ import { View, StyleSheet, Animated, Easing ,StatusBar,SafeAreaView} from 'react
   }, []);
 
   return (
-    <View>
+    <View style={{backgroundColor: 'rgb(241,242,244)',flex:1}}>
     <View style={{backgroundColor:'rgb(54,118,203)'}}>
         <StatusBar
         animated={true}
@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
     marginTop:'45%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'rgb(241,242,244)',
   }
 });
