@@ -286,9 +286,9 @@ const RegisteForm = ({navigation}) => {
             </View>
                 <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
                 <View style={{flexDirection:'row'}}>
-                    <RadioButton value="Male" />
+                    <RadioButton value="Male" color='rgb(34,88,163)'/>
                     <Text style={{marginTop:7}}>Male</Text>
-                    <RadioButton value="Female" />
+                    <RadioButton value="Female" color='rgb(34,88,163)'/>
                     <Text style={{marginTop:7}}>Female</Text>       
                 </View>
                 </RadioButton.Group>
@@ -410,7 +410,7 @@ const RegisteForm = ({navigation}) => {
             
            
             <View style={styles.button}>
-            <Button style={[styles.signIn,{backgroundColor:'rgb(34,88,163)'}]} mode="contained" onPress={() => Done()}>
+            <Button style={[styles.signIn,{backgroundColor:'rgb(34,88,163)'}]} mode="contained" onPress={() => contin()}>
                         Continue
                 </Button>
             </View>
