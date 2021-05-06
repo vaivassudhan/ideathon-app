@@ -58,11 +58,14 @@ export default function Report (props) {
                 <View key={i}>
                 <Card style={styles.card}>
                <Card.Content>
+                   <View style={{flexDirection:'row'}}>
                    <Title style={styles.title}>Symptoms</Title>
+                   <Title style={{color: '#34495e',fontSize:20,}}>: {u.Symptoms}</Title>
+                   </View>
                    <Divider/>
-                   <Paragraph style={{fontWeight: 'bold'}}>Symptoms<Paragraph style={{color: '#34495e'}}> : {u.Symptoms}</Paragraph></Paragraph>
-                   <Paragraph style={{fontWeight: 'bold'}}>Time<Paragraph style={{color: '#34495e'}}> : {u.Time}</Paragraph></Paragraph>
-                   <Paragraph style={{fontWeight: 'bold'}}>Date<Paragraph style={{color: '#34495e'}}> : {u.Date}</Paragraph></Paragraph>
+                   {/* <Paragraph style={{fontWeight: 'bold'}}>Symptoms<Paragraph style={{color: '#34495e'}}> : {u.Symptoms}</Paragraph></Paragraph> */}
+                   <Paragraph style={{fontWeight: 'bold',marginTop:8,marginBottom:8}}>Date<Paragraph style={{color: '#34495e'}}> : {u.Date}</Paragraph></Paragraph>
+                   <Paragraph style={{fontWeight: 'bold',marginTop:8,marginBottom:8}}>Time<Paragraph style={{color: '#34495e'}}> : {u.Time}</Paragraph></Paragraph>
                </Card.Content>
                <Divider/>
             </Card>
