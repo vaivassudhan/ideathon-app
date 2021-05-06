@@ -108,21 +108,46 @@ const readData = async() => {
                                 <Card.Content>
                                 <Title style={styles.title}></Title>
                                 <Divider/>
-                                <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
+                            {
+                                Allo.map((k,i)=>{
+                                    return(
+                                        <View key={i}>
+                                        <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : {k}</Paragraph></Paragraph>
+                                        </View>
+                                    )
+                                })
+                            }
+                                
                                 </Card.Content>
                             </Card>
                             <Card style={styles.card}>
                             <Card.Content>
                             <Title style={styles.title}></Title>
                             <Divider/>
-                            <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
+                            {
+                                Homeo.map((k,i)=>{
+                                    return(
+                                        <View key={i}>
+                                        <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : {k}</Paragraph></Paragraph>
+                                        </View>
+                                    )
+                                })
+                            }
                             </Card.Content>
                             </Card>
                             <Card style={styles.card}>
                             <Card.Content>
                             <Title style={styles.title}></Title>
                             <Divider/>
-                            <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
+                            {
+                                Ayur.map((k,i)=>{
+                                    return(
+                                        <View key={i}>
+                                        <Paragraph style={{fontWeight: 'bold',padding:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : {k}</Paragraph></Paragraph>
+                                        </View>
+                                    )
+                                })
+                            }
                             </Card.Content>
                             </Card>
                             </View>)}
