@@ -59,7 +59,7 @@ export default class Symptoms extends React.Component {
                       </View>
                 </View>
                 <View style={{alignSelf:'flex-end'}}>
-                <Button style={[styles.nextbutton,{backgroundColor:'rgb(51,124,247)', marginRight:20, marginTop:'70%'}]} mode="contained" onPress={() => this.props.navigation.navigate('Symco',{selected:JSON.stringify(this.tag.itemsSelected)})}>
+                <Button style={[styles.nextbutton,{backgroundColor:'rgb(51,124,247)', marginRight:20, marginTop:'40%'}]} mode="contained" onPress={() => this.props.navigation.navigate('Symco',{selected:JSON.stringify(this.tag.itemsSelected)})}>
                         Next
                 </Button>
                 </View>
@@ -95,7 +95,7 @@ const styles= StyleSheet.create({
       // position: 'absolute',
       alignSelf: 'flex-end',
       top:50,
-      bottom:0,
+      // bottom:0,
       right:20,
     }
  

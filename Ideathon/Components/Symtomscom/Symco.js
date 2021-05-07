@@ -183,7 +183,7 @@ const readData = async() => {
                         </Card.Content> */}
                 </View>
                 <View style={{alignSelf:'flex-end'}}>
-                <Button style={[styles.nextbutton,{backgroundColor:'rgb(51,124,247)', marginRight:20}]} mode="contained" onPress={() => Done()}>
+                <Button style={[styles.nextbutton,{backgroundColor:'rgb(51,124,247)', marginRight:20,marginBottom:18}]} mode="contained" onPress={() => Done()}>
                         Done
                 </Button>
                 </View>
@@ -227,6 +227,6 @@ text_header: {
     textAlign:'center',
   },
   title:{
-      fontSize:28,
+      fontSize:24,
   }
 });
