@@ -94,11 +94,17 @@ const readData = async() => {
                             {Arr.length>3 && (
                             <Card style={styles.card}>
                                 <Card.Content>
-                                <Title style={styles.title}>Please consult a Doctor</Title>
+                                <Title style={[styles.title,{color:'red'}]}>Please consult a Doctor</Title>
                                 <Divider/>
-                                <Paragraph style={{fontWeight: 'bold',paddingTop:25}}>Please Consult a doctor</Paragraph>
+                                <Paragraph style={{fontWeight: 'bold',paddingTop:25}}>Seek immediate medical attention if you have serious symptoms. Always call before visiting your doctor or health facility.</Paragraph>
                                 <Divider/>
-                                <Paragraph style={{fontWeight: 'bold',paddingTop:25}}>Helplines<Paragraph style={{color: '#34495e'}}> : go to helpline page</Paragraph></Paragraph>
+                                <Paragraph style={{fontWeight: 'bold',paddingTop:15}}>Serious symptoms:</Paragraph>
+                                <Text> - difficulty breathing or shortness of breath</Text>
+                                <Text> - chest pain or pressure</Text>
+                                <Text> - loss of speech or movement</Text>
+                                <Paragraph style={{fontWeight: 'bold',paddingTop:15}}>On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days.</Paragraph>
+                                <Divider/>
+                                <Paragraph style={{fontWeight: 'bold',paddingTop:25,color:'green'}}>People with mild symptoms who are otherwise healthy should manage their symptoms at home. Use this app to find remedy for your symptoms</Paragraph>
                                 </Card.Content>
                             </Card>
                             )}
