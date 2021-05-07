@@ -23,6 +23,11 @@ export default function Report (props) {
 
     useEffect(() => {
         readData();
+        var res=""
+        for(var i=0;i<Symptoms.lenth;i++){
+            res+=Symptoms[i]+", ";
+        }
+        console.log(res);
 
     }, [props.route.params.count])
 
