@@ -106,10 +106,12 @@ const readData = async() => {
                             <View>
                             <Card style={styles.card}>
                                 <Card.Content>
-                                <Title style={[styles.title,{alignSelf:'center'}]}>Allopathy</Title>
-                                <Divider/>
                                 <View style={{flexDirection:'row'}}>
-                                <Image style={{width:80,height:80,marginRight:10}} source={require('../../assets/allopathy.jpg')}/>
+                                <Image style={{width:120,height:100,marginRight:10}} source={require('../../assets/allopathy.jpg')}/>
+                                <Title style={[styles.title,{alignSelf:'center',marginLeft:22,}]}>Allopathy</Title>
+                                </View>
+                                <Divider style={{marginBottom:16}}/>
+                                
                                 <View style={{flex:1,flexDirection:'column'}}>
                                 {
                                     Allo.map((k,i)=>{
@@ -121,16 +123,17 @@ const readData = async() => {
                                         )
                                     })
                                 }
-                                </View>
+                                
                                </View> 
                             </Card.Content>
                             </Card>
                             <Card style={styles.card}>
                             <Card.Content>
-                            <Title style={[styles.title,{alignSelf:'center'}]}>Homeopathy</Title>
-                            <Divider/>
                             <View style={{flexDirection:'row'}}>
-                                <Image style={{width:80,height:80,marginRight:10}} source={require('../../assets/homeopathy.jpg')}/>
+                            <Image style={{width:120,height:100,marginRight:10}} source={require('../../assets/homeopathy.jpg')}/>
+                            <Title style={[styles.title,{alignSelf:'center',marginLeft:22,}]}>Homeopathy</Title>
+                            </View>
+                            <Divider style={{marginBottom:16}}/>
                             <View style={{flex:1,flexDirection:'column'}}>
                             {
                                 Homeo.map((k,i)=>{
@@ -142,15 +145,16 @@ const readData = async() => {
                                 })
                             }
                             </View>
-                            </View>
                             </Card.Content>
                             </Card>
                             <Card style={styles.card}>
                             <Card.Content>
-                            <Title style={[styles.title,{alignSelf:'center'}]}>Ayurvedha</Title>
-                            <Divider/>
                             <View style={{flexDirection:'row'}}>
-                                <Image style={{width:100,height:80,marginRight:10}} source={require('../../assets/ayurvedha.png')}/>
+                            <Image style={{width:120,height:100,marginRight:10}} source={require('../../assets/ayurvedha.png')}/>
+                            <Title style={[styles.title,{alignSelf:'center',marginLeft:22,}]}>Ayurvedha</Title>
+                            </View>
+                            <Divider style={{marginBottom:16}}/>
+                            
                                 <View style={{flex:1,flexDirection:'column'}}>
                                 {
                                     Ayur.map((k,i)=>{
@@ -161,7 +165,7 @@ const readData = async() => {
                                         )
                                     })
                                 }
-                                </View>
+                               
                             </View>
                             </Card.Content>
                             </Card>
@@ -216,4 +220,7 @@ text_header: {
     fontWeight: 'bold',
     textAlign:'center',
   },
+  title:{
+      fontSize:28,
+  }
 });

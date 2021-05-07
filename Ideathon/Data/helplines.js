@@ -56,29 +56,29 @@ const helpline_nums=[
 
     {
         key:"twelve",
-        state:'Tamil Nadu',
-        number:'044-29510500'
-    },
-    {
-        key:"thirteen",
-        state:'Telangana',
-        number:'104'
-    },
-    {
-        key:"fourtheen",
-        state:'Tripura',
-        number:'0381-2315879'
-    },
-    {
-        key:"fifteen",
         state:'Uttar Pradesh',
         number:'18001805145'
     },
     {
-        key:"sixteen",
+        key:"thirteen",
         state:'West Bengal',
         number:'03323412600'
     },
+    // {
+    //     key:"fourtheen",
+    //     state:'Tripura',
+    //     number:'0381-2315879'
+    // },
+    // {
+    //     key:"fifteen",
+    //     state:'Uttar Pradesh',
+    //     number:'18001805145'
+    // },
+    // {
+    //     key:"sixteen",
+    //     state:'West Bengal',
+    //     number:'03323412600'
+    // },
 
 ]
 export default helpline_nums
