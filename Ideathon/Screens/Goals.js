@@ -173,15 +173,48 @@ export default function Goals ({navigation}){
                       }   
                     </Card>
                     {/* Stay home card */}
+
                     <Card style={styles.cardstyle}>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo2} source={require('../assets/stayhome.jpeg')}/> 
-                            <Text style={styles.cardtext2}>Isolation</Text>
-                        </Card.Content>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Stay in a well-ventilated single-room preferably with an attached/separate toilet.</Text>
-                        </Card.Content>
-                    </Card>
+
+                        {!Show3 && (
+                          <Card.Title style={styles.title}
+                          left={()=><Image style={styles.cardlogobefore} source={require('../assets/stayhome.jpeg')}/> }
+                          title={<Text style={styles.cardtext2before}>    Isolation</Text>}
+                          right={()=>
+                          <TouchableOpacity onPress = {()=>{setShow3(!Show3)}}>                            
+                          <Feather
+                            style={{marginRight:15}} 
+                            name="chevron-down"
+                            color="grey"
+                            size={30}
+                          />
+                          </TouchableOpacity>
+                          }
+                        />)}
+
+                            {Show3 &&(
+                                <View>
+                                  <Card.Title style={styles.title}
+                                  left={()=><Image style={styles.cardlogo} source={require('../assets/stayhome.jpeg')}/> }
+                                  title={<Text style={styles.cardtext2}>    Isolation</Text>}
+                                  right={()=>
+                                  <TouchableOpacity onPress = {()=>{setShow3(!Show3)}}>                            
+                                  <Feather
+                                    style={{marginRight:15}} 
+                                    name="chevron-down"
+                                    color="grey"
+                                    size={30}
+                                  />
+                                  </TouchableOpacity>
+                                  }
+                                />
+                              <Card.Content style={{flexDirection:'row'}}>
+                                  <Text style={styles.cardvalue}>Stay in a well-ventilated single-room preferably with an attached/separate toilet.</Text>
+                              </Card.Content>
+                              </View>
+                              )
+                            }   
+                          </Card>
                 </View>
             </View>
           </ScrollView>
@@ -230,6 +263,7 @@ const styles = StyleSheet.create({
       cardstyle:{
         marginLeft:12,
         marginRight:12,
+        width: '93%',
         marginTop:8,
         marginBottom:2,
         flexDirection:'row',
