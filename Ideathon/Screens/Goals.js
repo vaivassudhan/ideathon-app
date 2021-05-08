@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
 import Feather from 'react-native-vector-icons/Feather';
-export default function Goals (){
+export default function Goals ({navigation}){
 
   const [Show ,setShow] = useState(false)
   const [Show1 ,setShow1] = useState(false)
@@ -32,7 +32,7 @@ export default function Goals (){
             backgroundColor="rgb(54,118,203)"/>
             <SafeAreaView>
                 <View style={{flexDirection:'row'}}>
-                <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => this.props.navigation.navigate('Home')}> </Icon.Button>   
+                <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => navigation.navigate('Home')}> </Icon.Button>   
                 <Text style={[styles.head,{alignSelf:'center',marginLeft:'30%'}]}>Goals</Text>
                 </View>
             </SafeAreaView>
