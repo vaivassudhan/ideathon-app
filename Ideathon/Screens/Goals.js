@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component,useState } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons';
 import { 
     SafeAreaView,
@@ -16,8 +16,14 @@ import {
     ImageBackground
 } from 'react-native';
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
-export class Breathing extends Component {
-    render() {
+import Feather from 'react-native-vector-icons/Feather';
+export default function Goals (){
+
+  const [Show ,setShow] = useState(false)
+  const [Show1 ,setShow1] = useState(false)
+  const [Show2 ,setShow2] = useState(false)
+  const [Show3 ,setShow3] = useState(false)
+  const [Show4 ,setShow4] = useState(false)
         return (
         <View>
             <View style={{backgroundColor:'rgb(54,118,203)'}}>
@@ -31,40 +37,140 @@ export class Breathing extends Component {
                 </View>
             </SafeAreaView>
             </View>
+            <ScrollView>
             <View style={styles.container}>
                 <View>
-                <ScrollView>
-                    <Card style={styles.cardstyle}>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo} source={require('../assets/sleep.png')}/> 
-                            <Text style={styles.cardtext2}>Sleep for 7-9 hours</Text>
-                        </Card.Content>
-                        <Card.Content style={{flexDirection:'row'}}>
+              <Card style={styles.cardstyle}>
+
+                  {!Show && (
+                    <Card.Title style={styles.title}
+                    left={()=><Image style={styles.cardlogobefore} source={require('../assets/sleep.png')}/> }
+                    title={<Text style={styles.cardtext2before}>    Sleep for 7-9 hours</Text>}
+                    right={()=>
+                    <TouchableOpacity onPress = {()=>{setShow(!Show)}}>                            
+                    <Feather
+                      style={{marginRight:15}} 
+                      name="chevron-down"
+                      color="grey"
+                      size={30}
+                    />
+                    </TouchableOpacity>
+                    }
+                  />)}
+
+                      {Show &&(
+                          <View>
+                            <Card.Title style={styles.title}
+                            left={()=><Image style={styles.cardlogo} source={require('../assets/sleep.png')}/> }
+                            title={<Text style={styles.cardtext2}>    Sleep for 7-9 hours</Text>}
+                            right={()=>
+                            <TouchableOpacity onPress = {()=>{setShow(!Show)}}>                            
+                            <Feather
+                              style={{marginRight:15}} 
+                              name="chevron-down"
+                              color="grey"
+                              size={30}
+                            />
+                            </TouchableOpacity>
+                            }
+                          />
+                            <Card.Content style={{flexDirection:'row'}}>
                             {/* <Text style={styles.cardvalue}>Take rest. As you fall into the deeper stages of sleep, your muscles will see an increase in blood flow, which brings along oxygen and nutrients that that help recover and repair muscles and regenerate cells.To know more about sleep and covid</Text> */}
                             <Paragraph style={styles.cardvalue}>Take rest. As you fall into the deeper stages of sleep, 
                             your muscles will see an increase in blood flow, which brings along oxygen and nutrients that that help recover and repair muscles and regenerate cells.</Paragraph>
                             {/* <Text style={[styles.cardvalue,{color:'rgb(54,118,203)',textDecorationLine: 'underline',}]} onPress={() => Linking.openURL('https://www.physio-pedia.com/COVID-19_and_Sleep')}>    Click Here</Text> */}
                         </Card.Content>
+                        </View>
+                        )
+                      }   
                     </Card>
+
+
+
                     {/* healthy card */}
-                    <Card style={styles.cardstyle}>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo} source={require('../assets/healthy.jpeg')}/> 
-                            <Text style={styles.cardtext2}>Healthy Diet</Text>
-                        </Card.Content>
+                  <Card style={styles.cardstyle}>
+
+                  {!Show1 && (
+                    <Card.Title style={styles.title}
+                    left={()=><Image style={styles.cardlogobefore} source={require('../assets/healthy.jpeg')}/> }
+                    title={<Text style={styles.cardtext2before}>    Healthy Diet</Text>}
+                    right={()=>
+                    <TouchableOpacity onPress = {()=>{setShow1(!Show1)}}>                            
+                    <Feather
+                      style={{marginRight:15}} 
+                      name="chevron-down"
+                      color="grey"
+                      size={30}
+                    />
+                    </TouchableOpacity>
+                    }
+                  />)}
+
+                      {Show1 &&(
+                          <View>
+                            <Card.Title style={styles.title}
+                            left={()=><Image style={styles.cardlogo} source={require('../assets/healthy.jpeg')}/> }
+                            title={<Text style={styles.cardtext2}>    Healthy Diet</Text>}
+                            right={()=>
+                            <TouchableOpacity onPress = {()=>{setShow1(!Show1)}}>                            
+                            <Feather
+                              style={{marginRight:15}} 
+                              name="chevron-down"
+                              color="grey"
+                              size={30}
+                            />
+                            </TouchableOpacity>
+                            }
+                          />
                         <Card.Content style={{flexDirection:'row'}}>
                             <Paragraph style={styles.cardvalue}>Take healthy diet as your body needs enough nutrition to fight the virus.The nutrients that proper nutrition provides supply their body with much needed energy. The person feels better mentally, physically, and emotionally.</Paragraph>
                         </Card.Content>
+                        </View>
+                        )
+                      }   
                     </Card>
+
                     {/* Water card */}
-                    <Card style={styles.cardstyle}>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo} source={require('../assets/Water-icon.png')}/> 
-                            <Text style={styles.cardtext2}>Drink water (10 glasses)</Text>
-                        </Card.Content>
+                  <Card style={styles.cardstyle}>
+
+                  {!Show2 && (
+                    <Card.Title style={styles.title}
+                    left={()=><Image style={styles.cardlogobefore} source={require('../assets/Water-icon.png')}/> }
+                    title={<Text style={styles.cardtext2before}>    Drink water (10 glasses)</Text>}
+                    right={()=>
+                    <TouchableOpacity onPress = {()=>{setShow2(!Show2)}}>                            
+                    <Feather
+                      style={{marginRight:15}} 
+                      name="chevron-down"
+                      color="grey"
+                      size={30}
+                    />
+                    </TouchableOpacity>
+                    }
+                  />)}
+
+                      {Show2 &&(
+                          <View>
+                            <Card.Title style={styles.title}
+                            left={()=><Image style={styles.cardlogo} source={require('../assets/Water-icon.png')}/> }
+                            title={<Text style={styles.cardtext2}>    Drink water (10 glasses)</Text>}
+                            right={()=>
+                            <TouchableOpacity onPress = {()=>{setShow2(!Show2)}}>                            
+                            <Feather
+                              style={{marginRight:15}} 
+                              name="chevron-down"
+                              color="grey"
+                              size={30}
+                            />
+                            </TouchableOpacity>
+                            }
+                          />
                         <Card.Content style={{flexDirection:'row'}}>
                             <Text style={styles.cardvalue}>Drinking water to stay hydrated is important for those participating in physical therapy programs. Maintaining the body’s hydration is critical to your recovery</Text>
                         </Card.Content>
+                        </View>
+                        )
+                      }   
                     </Card>
                     {/* Stay home card */}
                     <Card style={styles.cardstyle}>
@@ -76,15 +182,13 @@ export class Breathing extends Component {
                             <Text style={styles.cardvalue}>Stay in a well-ventilated single-room preferably with an attached/separate toilet.</Text>
                         </Card.Content>
                     </Card>
-                </ScrollView>
                 </View>
             </View>
+          </ScrollView>
         </View>
         )
     }
-}
 
-export default Breathing
 const styles = StyleSheet.create({
     container: {
         margin:4,
@@ -99,6 +203,11 @@ const styles = StyleSheet.create({
       cardlogo:{
         width: 70,
         height:70,
+        marginRight:8
+      },
+      cardlogobefore:{
+        width: 75,
+        height:75,
         marginRight:8
       },
       cardlogo2:{
@@ -144,6 +253,13 @@ const styles = StyleSheet.create({
       cardtext2:{
         color:'rgb(54,118,203)',
         fontSize:22,
+        marginTop:18,
+        margin:12,
+        width:'70%'
+      },
+      cardtext2before:{
+        color:'rgb(54,118,203)',
+        fontSize:24,
         marginTop:18,
         margin:12,
         width:'70%'
