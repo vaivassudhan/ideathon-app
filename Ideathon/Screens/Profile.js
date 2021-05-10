@@ -13,12 +13,24 @@ import {
     ImageBackground
 } from 'react-native';
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
+import CountdownCircle from "../Components/CountdownTimer";
 export class Profile extends Component {
     render() {
         return (
             <View>
             
             <View style={styles.container}>
+
+            <CountdownCircle
+                seconds={1209600}
+                radius={140}
+                borderWidth={25}
+                color="rgb(54,118,203)"
+                bgColor="#fff"
+                shadowColor="rgb(97,212,203)"
+                textStyle={{ fontSize: 70}}
+                onTimeElapsed={() => this.props.navigation.navigate("Home")}
+              />
                 <View style={styles.headview}>
                     <Text style={styles.head}>Goals</Text>
                 </View>
