@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import _ from 'lodash';
 import {sprintf} from 'sprintf-js';
+import { LogBox } from 'react-native';
 
 const DEFAULT_DIGIT_STYLE = {backgroundColor: 'rgb(54,118,203)'};
 const DEFAULT_DIGIT_TXT_STYLE = {color: '#000'};
@@ -52,6 +53,7 @@ class CountDown extends React.Component {
 
   componentDidMount() {
     AppState.addEventListener('change', this._handleAppStateChange);
+    LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
   }
 
   componentWillUnmount() {
