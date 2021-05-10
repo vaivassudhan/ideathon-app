@@ -23,6 +23,7 @@ import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 import { useTheme } from 'react-native-paper';
 import axios from 'axios';
+import QuarantineTimer from "../Components/QuarantineTimer";
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
 export function Home({navigation}){
     const [Name,setName]=useState('')
@@ -81,14 +82,24 @@ export function Home({navigation}){
                 <Text style={styles.welcometext}>
                     Welcome back!!
                 </Text>
-                <View style={styles.cardrow}>
+                <QuarantineTimer
+                    style={{ marginTop: 50 }}
+                    until={1209600}
+                    onFinish={() =>
+                      alert("Your quarantine is over! You earned 120 points!")
+                    }
+                    onPress={() =>
+                      alert("Don't give up! You're on your way to earning 120 points!")
+                    }
+                    size={20}
+                  />
+                {/* <View style={styles.cardrow}>
                 <Card style={styles.daycard}>
                     <Card.Content>
                         <Text style={styles.daycardtext}> {Days} out of 14 days </Text>
-                        {/* <Text style={styles.daycardtext}>{userDate}</Text> */}
                     </Card.Content>
                 </Card>
-                </View>
+                </View> */}
 
                 <View style={styles.buttonrow}>
                     <Card style={[styles.cardbutton,]}>
