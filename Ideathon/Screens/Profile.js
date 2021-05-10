@@ -31,51 +31,7 @@ export class Profile extends Component {
                 textStyle={{ fontSize: 70}}
                 onTimeElapsed={() => this.props.navigation.navigate("Home")}
               />
-                <View style={styles.headview}>
-                    <Text style={styles.head}>Goals</Text>
-                </View>
-                <View>
-                    <Card style={styles.cardstyle}>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo} source={require('../assets/sleep.png')}/> 
-                            <Text style={styles.cardtext2}>Sleep for 7-9 hours</Text>
-                        </Card.Content>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>To know more about sleep and covid</Text>
-                        </Card.Content>
-                            <Text style={{alignSelf:'center' ,paddingTop:10}} onPress={() => Linking.openURL('https://www.physio-pedia.com/COVID-19_and_Sleep')}>    Click Here</Text>
-                    </Card>
-                    {/* healthy card */}
-                    <Card style={styles.cardstyle}>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo} source={require('../assets/healthy.jpeg')}/> 
-                            <Text style={styles.cardtext2}>Healthy Diet</Text>
-                        </Card.Content>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Take healthy diet as your body needs enough nutrition to fight the virus</Text>
-                        </Card.Content>
-                    </Card>
-                    {/* Water card */}
-                    <Card style={styles.cardstyle}>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo} source={require('../assets/Water-icon.png')}/> 
-                            <Text style={styles.cardtext2}>Water</Text>
-                        </Card.Content>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Drink more water, average adult body needs 2.5 Litres (10 glasses) of water</Text>
-                        </Card.Content>
-                    </Card>
-                    {/* Stay home card */}
-                    <Card style={styles.cardstyle}>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Image style={styles.cardlogo} source={require('../assets/healthy.jpeg')}/> 
-                            <Text style={styles.cardtext2}>Isolation</Text>
-                        </Card.Content>
-                        <Card.Content style={{flexDirection:'row'}}>
-                            <Text style={styles.cardvalue}>Stay Home, Stay safe</Text>
-                        </Card.Content>
-                    </Card>
-                </View>
+                
             </View>
             </View>
         )
