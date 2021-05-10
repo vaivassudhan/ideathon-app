@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component ,useState} from 'react';
 import { 
     View, 
     ScrollView ,
@@ -12,15 +12,58 @@ import {
     Alert,
     ImageBackground
 } from 'react-native';
-import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
 import CountdownCircle from "../Components/CountdownTimer";
-export class Profile extends Component {
-    render() {
+import Icon from 'react-native-vector-icons/Ionicons';
+import Feather from 'react-native-vector-icons/Feather';
+import AsyncStorage from '@react-native-community/async-storage';
+import { Avatar, Button, Card, Title, Paragraph, Divider } from 'react-native-paper';
+export function Profile() {
+
+  const [Show ,Setshow]=useState(false)
         return (
             <View>
             
             <View style={styles.container}>
-
+            <Card style={styles.card}>
+                <Card.Title
+                    title={<Title  style={styles.title}>  
+                    <Feather
+                    name="user"
+                    color='rgb(224,91,40)'
+                    size={30}
+                  /> Name : {userName}</Title>}
+                    right={()=>
+                        <View style={{flexDirection:'row'}}>
+                        <Text style={{marginTop:5,color:'grey'}}>
+                            {}
+                        </Text>
+                        <TouchableOpacity onPress = {()=>{Setshow(!Show)}}>                            
+                        <Feather
+                          style={{marginRight:15}} 
+                          name="chevron-down"
+                          color="grey"
+                          size={30}
+                        />
+                        </TouchableOpacity>
+                        </View>
+                        }
+                
+                    />
+                <Card.Content>
+                   <Divider/>
+                   {
+                       Show && (
+                           <View>
+                            <Paragraph style={{fontWeight: 'bold',marginTop:8,marginBottom:8}}>Age<Paragraph style={{color: '#34495e'}}> : {userAge}</Paragraph></Paragraph>
+                            <Paragraph style={{fontWeight: 'bold',marginTop:8,marginBottom:8}}>Gender<Paragraph style={{color: '#34495e'}}> : {userGender}</Paragraph></Paragraph>
+                            </View>
+                       )
+                   }
+                  
+               </Card.Content>
+                    
+               <Divider/>
+            </Card>
             <CountdownCircle
                 seconds={1209600}
                 radius={140}
@@ -36,86 +79,53 @@ export class Profile extends Component {
             </View>
         )
     }
-}
 
 export default Profile
 const styles = StyleSheet.create({
-    container: {
-        margin:12,
-        justifyContent:'center',
-        alignItems:'center',
+  card: {
+      marginLeft:12,
+          marginRight:12,
+          width: '93%',
+          marginTop:8,
+          marginBottom:2,
+          flexDirection:'row',
+          shadowColor: "#000",
+          shadowOffset: {
+              width: 0,
+              height: 4,
+          },
+          shadowOpacity: 0.30,
+          shadowRadius: 11.95,
+          borderRadius:20,
+  
+          elevation: 8,
+    },  
+    title:{
+      fontWeight: 'bold',
+      marginRight:20,
+      color:'rgb(224,91,40)'
+    },
+      paragraph: {
+        margin: 2,
+        fontSize: 25,
+        fontWeight: 'bold',
+        textAlign: 'center',
+      //color: '#34495e',
+  
       },
-      logo: {
-        width: 70,
-        height:70,
-        marginRight:28
+      cardText:{
+        fontSize:30,
+        padding:10
       },
-      cardlogo:{
-        width: 70,
-        height:70,
-        marginRight:8
-      },
-      cardlogo2:{
-        width: 50,
-        height:50,
-        marginRight:5
-      },
-      head: {
-          marginTop:4,
-          fontSize:32,
-      },
-      headview: {
-        marginTop:5,
-        marginLeft:28,
-        marginRight:32,
-        marginBottom:14,
-        flexDirection:'row'
-      },
-      cardstyle:{
-        marginLeft:12,
-        marginRight:12,
-        marginTop:12,
-        flexDirection:'row',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 4,
+      text_header: {
+          color: '#34495e',
+          fontWeight: 'bold',
+          fontSize: 20,
+          textAlign:'center',
+          marginTop:12,
         },
-        shadowOpacity: 0.30,
-        shadowRadius: 11.95,
-        borderRadius:20,
-
-        elevation: 8,
-      },
-      cardtext:{
-        color:'rgb(223,98,51)',
-        fontSize:22,
-        marginTop:12,
-        width:'50%'
-      },
-      cardtext2:{
-        color:'rgb(54,118,203)',
-        fontSize:22,
-        marginTop:12,
-        margin:12,
-        width:'70%'
-      },
-      cardtext3:{
-        // color:'rgb(56, 130, 241)',
-        color:'rgb(85,177,94)',
-        fontSize:22,
-        marginTop:12,
-        width:'50%'
-      },
-      cardtext4:{
-        color:'#dc4b63',
-        fontSize:22,
-        marginTop:12,
-        width:'50%'
-      },
-      cardvalue:{
-        color:'black',
-        marginTop:12
-      }
-    
-});
+        title_nodata:{
+          fontWeight: 'bold',
+          textAlign:'center',
+        },
+  });
