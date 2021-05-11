@@ -98,6 +98,20 @@ const App = () => {
   const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
 
   const authContext = React.useMemo(() => ({
+    update:async(updated)=>{
+      try {
+        await AsyncStorage.removeItem('Name');
+        await AsyncStorage.removeItem('Age');
+        await AsyncStorage.removeItem('Gender');
+
+        await AsyncStorage.setItem('Name', updated.Name );
+        await AsyncStorage.setItem('Age', updated.Age);
+        await AsyncStorage.setItem('Gender', updated.Gender);
+      }catch(e){
+        console.log(e); 
+      }
+    },
+
     AddSelectedList:async(selected)=>{
       try {
         await AsyncStorage.setItem('Symtoms', selected );
@@ -110,7 +124,7 @@ const App = () => {
     signIn: async(dic) => {
       // setUserToken('fgkj');
       // setIsLoading(false);
-      console.log("APP.JS",dic.Name)
+      console.log("APP.JS",dic.Time)
       try {
         
         await AsyncStorage.setItem('Name', dic.Name );
@@ -118,6 +132,7 @@ const App = () => {
         await AsyncStorage.setItem('Gender', dic.Gender);
         await AsyncStorage.setItem('PhoneNumber', dic.PhoneNumber);
         await AsyncStorage.setItem('Date', dic.Date);
+        await AsyncStorage.setItem('Time', dic.Time);
         await AsyncStorage.setItem('Symtoms', dic.Symtoms);
 
         userSymptoms = await AsyncStorage.getItem('Symtoms');
@@ -139,6 +154,7 @@ const App = () => {
         await AsyncStorage.removeItem('Gender');
         await AsyncStorage.removeItem('PhoneNumber');
         await AsyncStorage.removeItem('Date');
+        await AsyncStorage.removeItem('Time');
         await AsyncStorage.removeItem('Symtoms');
         
       } catch(e) {
@@ -170,9 +186,10 @@ const App = () => {
         userGender = await AsyncStorage.getItem('Gender');
         userPhoneNumber = await AsyncStorage.getItem('PhoneNumber');
         userDate = await AsyncStorage.getItem('Date');
+        userTime = await AsyncStorage.getItem('Time');
         userSymptoms = await AsyncStorage.getItem('Symtoms');
         
-        console.log("App.js:",userName)
+        console.log("App.js:",userTime)
       } catch(e) {
         console.log(e);
       }
