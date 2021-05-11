@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fffdf9",
-    marginTop: 80,
+    marginTop: 20,
     alignSelf: "center",
     overflow: "hidden",
 
@@ -231,7 +231,7 @@ export default class PercentageCircle extends React.PureComponent {
         ]}
       >
         <Text style={this.props.textStyle}>{date}</Text>
-        <Text style={{fontSize:20,fontWeight:'bold',textAlign:'center'}}>Days</Text>
+        <Text style={{fontSize:20,fontWeight:'bold',textAlign:'center'}}>Days to go..</Text>
 
       </View>
     );
