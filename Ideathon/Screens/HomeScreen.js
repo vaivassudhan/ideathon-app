@@ -168,7 +168,7 @@ const styles= StyleSheet.create({
     container:{
         flex:1,
         alignItems:'center',
-        backgroundColor:style[0].bgcard
+        backgroundColor:'#fcfcfc'
     },
     welcometext:{
         fontSize:20,
