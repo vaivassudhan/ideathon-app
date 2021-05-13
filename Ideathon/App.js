@@ -46,7 +46,8 @@ const App = () => {
       ...NavigationDefaultTheme.colors,
       ...PaperDefaultTheme.colors,
       background: '#efefef',
-      text: '#000000'
+      text: '#000000',
+      backcard:'#ffffff'
     }
   }
   
@@ -57,7 +58,8 @@ const App = () => {
       ...NavigationDarkTheme.colors,
       ...PaperDarkTheme.colors,
       background: '#18191A',
-      text: '#1177D6'
+      text: '#1177D6',
+      backcard:'#192734'
     }
   }
 

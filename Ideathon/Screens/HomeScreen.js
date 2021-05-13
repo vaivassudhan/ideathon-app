@@ -15,18 +15,18 @@ import {
 import style from '../Styles/style';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Button } from 'react-native-paper';
-import * as Animatable from 'react-native-animatable';
-import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-import * as Notifications from 'expo-notifications'
-import * as Permissions from 'expo-permissions';
-import Constants from 'expo-constants';
 import { useTheme } from 'react-native-paper';
 import axios from 'axios';
 import QuarantineTimer from "../Components/QuarantineTimer";
 import { Avatar, Card, Title, Paragraph } from 'react-native-paper';
+import color from 'color';
 export function Home({navigation}){
+
+
+    const { colors } = useTheme();
+
     const [Name,setName]=useState('')
     const [Gender,setGender]=useState('')
     const [Date ,setDate]=useState('')
@@ -111,7 +111,7 @@ export function Home({navigation}){
                         </Card.Content>
                         </TouchableOpacity>
                     </Card>
-                    <Card style={[styles.cardbutton,]}>
+                    <Card style={[styles.cardbutton,{backgroundColor:colors.backcard}]}>
                     <TouchableOpacity onPress={() =>{report()}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
@@ -168,7 +168,6 @@ const styles= StyleSheet.create({
     container:{
         flex:1,
         alignItems:'center',
-        backgroundColor:'#fcfcfc'
     },
     welcometext:{
         fontSize:20,
