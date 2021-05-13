@@ -77,10 +77,10 @@ export function Home({navigation}){
     }
         return (
             <View style={styles.container}>
-                <Text style={styles.welcometext}>
+                <Text style={styles.welcometext,{color:colors.text,fontSize:20,marginTop:12,fontWeight:"600"}}>
                     Hello {Name},
                 </Text>
-                <Text style={styles.welcometext}>
+                <Text style={styles.welcometext,{color:colors.text,fontSize:20,marginTop:12,fontWeight:"600"}}>
                     Welcome back!!
                 </Text>
                 <QuarantineTimer
@@ -103,7 +103,7 @@ export function Home({navigation}){
                 </View> */}
 
                 <View style={styles.buttonrow}>
-                    <Card style={[styles.cardbutton,]}>
+                    <Card style={[styles.cardbutton,{backgroundColor:colors.accent1}]}>
                         <TouchableOpacity onPress={() =>{navigation.navigate('Symptoms')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/symptoms2.png')}/>
@@ -111,7 +111,7 @@ export function Home({navigation}){
                         </Card.Content>
                         </TouchableOpacity>
                     </Card>
-                    <Card style={[styles.cardbutton,{backgroundColor:colors.backcard}]}>
+                    <Card style={[styles.cardbutton,{backgroundColor:colors.accent2}]}>
                     <TouchableOpacity onPress={() =>{report()}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
@@ -121,7 +121,7 @@ export function Home({navigation}){
                     </Card>
                 </View>
                 <View style={styles.buttonrow}>
-                    <Card style={[styles.cardbutton,]}>
+                    <Card style={[styles.cardbutton,{backgroundColor:colors.accent3}]}>
                     <TouchableOpacity onPress={() =>{navigation.navigate('Goals')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/target.png')}/>
@@ -129,7 +129,7 @@ export function Home({navigation}){
                         </Card.Content>
                     </TouchableOpacity>
                     </Card>
-                    <Card style={[styles.cardbutton,]}>
+                    <Card style={[styles.cardbutton,{backgroundColor:colors.accent1}]}>
                     <TouchableOpacity onPress={() =>{navigation.navigate('Breathing')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/heart.png')}/>
