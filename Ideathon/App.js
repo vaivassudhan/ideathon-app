@@ -124,7 +124,7 @@ const App = () => {
     signIn: async(dic) => {
       // setUserToken('fgkj');
       // setIsLoading(false);
-      console.log("APP.JS",dic.Time)
+      console.log("APP.JS",dic.Location)
       try {
         
         await AsyncStorage.setItem('Name', dic.Name );
@@ -134,6 +134,7 @@ const App = () => {
         await AsyncStorage.setItem('Date', dic.Date);
         await AsyncStorage.setItem('Time', dic.Time);
         await AsyncStorage.setItem('Symtoms', dic.Symtoms);
+        await AsyncStorage.setItem('Location', dic.Location);
 
         userSymptoms = await AsyncStorage.getItem('Symtoms');
 
@@ -156,6 +157,7 @@ const App = () => {
         await AsyncStorage.removeItem('Date');
         await AsyncStorage.removeItem('Time');
         await AsyncStorage.removeItem('Symtoms');
+        await AsyncStorage.removeItem('Location');
         
       } catch(e) {
         console.log(e);
@@ -188,6 +190,7 @@ const App = () => {
         userDate = await AsyncStorage.getItem('Date');
         userTime = await AsyncStorage.getItem('Time');
         userSymptoms = await AsyncStorage.getItem('Symtoms');
+        userLocation = await AsyncStorage.getItem('Location');
         
         console.log("App.js:",userTime)
       } catch(e) {
