@@ -12,6 +12,7 @@ import {
     Alert,
     ImageBackground
 } from 'react-native';
+import style from '../Styles/style';
 import AsyncStorage from '@react-native-community/async-storage';
 import { Button } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
@@ -167,7 +168,7 @@ const styles= StyleSheet.create({
     container:{
         flex:1,
         alignItems:'center',
-        backgroundColor:'#fcfcfc'
+        backgroundColor:style[0].bgcard
     },
     welcometext:{
         fontSize:20,
