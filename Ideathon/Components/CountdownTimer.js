@@ -230,7 +230,7 @@ export default class PercentageCircle extends React.PureComponent {
           }
         ]}
       >
-        <Text style={this.props.textStyle}>{date}</Text>
+        <Text style={this.props.textStyle}>{date+1}</Text>
         <Text style={{fontSize:20,fontWeight:'bold',textAlign:'center'}}>Days to go..</Text>
 
       </View>
