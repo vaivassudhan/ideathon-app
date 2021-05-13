@@ -15,11 +15,7 @@ import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-import * as Notifications from 'expo-notifications'
-import * as Permissions from 'expo-permissions';
-import Constants from 'expo-constants';
 import { useTheme ,RadioButton, Button,} from 'react-native-paper';
-import axios from 'axios';
 import { AuthContext } from '../context';
 
 
@@ -33,6 +29,70 @@ const RegisteForm = ({navigation}) => {
     const [City , setCity]=useState('');
     const [PhoneNumber , setPhoneNumber]=useState('');
     const [value, setValue] = React.useState('first');
+    
+    
+    
+    const [location, setlocation] = React.useState(null);
+    const [geocode, setgeocode] = React.useState(null);
+    const [errorMessage, seterrorMessage] = React.useState('');
+
+    const [Locationn, setLocation] = useState(null);
+    const [errorMsg, setErrorMsg] = useState(null);
+
+    const Http = new XMLHttpRequest();
+    function getLocation() {
+        console.log("getLocation Called");
+        var bdcApi = "https://api.bigdatacloud.net/data/reverse-geocode-client"
+
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                bdcApi = bdcApi
+                    + "?latitude=" + position.coords.latitude
+                    + "&longitude=" + position.coords.longitude
+                    + "&localityLanguage=en";
+                getApi(bdcApi);
+
+            },
+            (err) => { getApi(bdcApi); },
+            {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            });
+    }
+    function getApi(bdcApi) {
+        Http.open("GET", bdcApi);
+        Http.send();
+        Http.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let result = this.responseText
+                setlocation(result)
+                
+            }
+        };
+    }
+
+        useEffect(() => {
+            getLocation();
+          }, []);
+    
+    // getLocationAsync = async () => {
+    //         let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    //         if (status !== 'granted') {
+    //             seterrorMessage('Permission to access location was denied')
+    //         }
+        
+    //         let location = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.Highest});
+    //         const { latitude , longitude } = location.coords
+    //         getGeocodeAsync({latitude, longitude})
+    //         setlocation({ location: {latitude, longitude}});
+    //       };
+
+    //       getGeocodeAsync= async (location) => {
+    //         let geocode = await Location.reverseGeocodeAsync(location)
+    //         // this.setState({ geocode})
+    //         setgeocode(geocode)
+    //       }
 
     const [data, setData] = React.useState({
         Name:'',
@@ -65,6 +125,8 @@ const RegisteForm = ({navigation}) => {
     function contin(){
         if(data.check_textNameChange || data.check_textAgeChange || data.check_textGenderChange || data.check_textPhoneNumberChange){
             var date = getCurrentDate();
+            const date2 = new window.Date().getTime();
+            let time = JSON.stringify(date2)
             var dem = {
                 data:[]
                 }
@@ -74,7 +136,9 @@ const RegisteForm = ({navigation}) => {
                 Gender:value,
                 PhoneNumber:PhoneNumber,
                 Date:date,
-                Symtoms:JSON.stringify(dem)
+                Time:time,
+                Symtoms:JSON.stringify(dem),
+                Location:location
             }
             console.log(dic)
             signIn(dic);
