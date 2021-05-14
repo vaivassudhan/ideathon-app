@@ -2,6 +2,7 @@ import React from 'react';
 
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import useTheme from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -16,6 +17,7 @@ const HelplineStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 const MainTabScreen = () => (
+  
     <Tab.Navigator
       initialRouteName="Home"
       activeColor="#fff"
@@ -61,8 +63,8 @@ const MainTabScreen = () => (
 );
 
 export default MainTabScreen;
-
-const HomeStackScreen = ({navigation}) => (
+function HomeStackScreen ({navigation}){
+  const { colors } = useTheme();
 <HomeStack.Navigator screenOptions={{
         headerStyle: {
         backgroundColor: 'rgb(54,118,203)',
@@ -79,7 +81,7 @@ const HomeStackScreen = ({navigation}) => (
         )
         }} />
 </HomeStack.Navigator>
-);
+}
 
 const ProfileStackScreen = ({navigation}) => (
 <ProfileStack.Navigator screenOptions={{
