@@ -27,6 +27,75 @@ export function Home({navigation}){
 
     const { colors } = useTheme();
 
+    const styles= StyleSheet.create({
+        container:{
+            flex:1,
+            alignItems:'center',
+        },
+        welcometext:{
+            fontSize:20,
+            marginTop:12,
+            color:colors.text,
+            // marginLeft:12,
+            fontWeight:"700",
+        },
+        cardrow:{
+            flexDirection:'row',
+            marginBottom:28,
+            marginTop:28,
+        },
+        buttonrow:{
+            flexDirection:'row',
+            marginTop:22,
+        },
+        daycard:{
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 4,
+            },
+            shadowOpacity: 0.30,
+            shadowRadius: 11.95,
+            borderRadius:20,
+    
+            elevation: 8,
+        },
+        cardstyle:{
+            marginLeft:12,
+            marginRight:12,
+            marginTop:12,
+            flexDirection:'row',
+          },
+          daycardtext:{
+            color:'rgb(54,118,203)',
+            fontSize:22,
+          },
+          buttontext:{
+            color:'rgb(54,118,203)',
+            fontSize:18,
+            marginTop:12,
+          },
+          cardbutton:{
+            alignItems:'center',
+            backgroundColor:colors.accent1,
+            width:'40%',
+            margin:10,
+            justifyContent:'center',
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 9,
+            },
+            shadowOpacity: 0.48,
+            shadowRadius: 11.95,
+            borderRadius:20,
+            elevation: 18,
+          },
+          buttoncardcontent:{
+            marginTop:12,
+            marginBottom:12
+          }
+    })
     const [Name,setName]=useState('')
     const [Gender,setGender]=useState('')
     const [Date ,setDate]=useState('')
@@ -77,10 +146,10 @@ export function Home({navigation}){
     }
         return (
             <View style={styles.container}>
-                <Text style={styles.welcometext,{color:colors.text,fontSize:20,marginTop:12,fontWeight:"600"}}>
+                <Text style={styles.welcometext}>
                     Hello {Name},
                 </Text>
-                <Text style={styles.welcometext,{color:colors.text,fontSize:20,marginTop:12,fontWeight:"600"}}>
+                <Text style={styles.welcometext}>
                     Welcome back!!
                 </Text>
                 <QuarantineTimer
@@ -103,7 +172,7 @@ export function Home({navigation}){
                 </View> */}
 
                 <View style={styles.buttonrow}>
-                    <Card style={[styles.cardbutton,{backgroundColor:colors.accent1}]}>
+                    <Card style={[styles.cardbutton]}>
                         <TouchableOpacity onPress={() =>{navigation.navigate('Symptoms')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/symptoms2.png')}/>
@@ -111,7 +180,7 @@ export function Home({navigation}){
                         </Card.Content>
                         </TouchableOpacity>
                     </Card>
-                    <Card style={[styles.cardbutton,{backgroundColor:colors.accent2}]}>
+                    <Card style={[styles.cardbutton]}>
                     <TouchableOpacity onPress={() =>{report()}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/reportcc.png')}/>
@@ -121,7 +190,7 @@ export function Home({navigation}){
                     </Card>
                 </View>
                 <View style={styles.buttonrow}>
-                    <Card style={[styles.cardbutton,{backgroundColor:colors.accent3}]}>
+                    <Card style={[styles.cardbutton]}>
                     <TouchableOpacity onPress={() =>{navigation.navigate('Goals')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/target.png')}/>
@@ -129,7 +198,7 @@ export function Home({navigation}){
                         </Card.Content>
                     </TouchableOpacity>
                     </Card>
-                    <Card style={[styles.cardbutton,{backgroundColor:colors.accent1}]}>
+                    <Card style={[styles.cardbutton]}>
                     <TouchableOpacity onPress={() =>{navigation.navigate('Breathing')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/heart.png')}/>
@@ -164,70 +233,4 @@ export function Home({navigation}){
 
 export default Home
 
-const styles= StyleSheet.create({
-    container:{
-        flex:1,
-        alignItems:'center',
-    },
-    welcometext:{
-        fontSize:20,
-        marginTop:12,
-        // marginLeft:12,
-        fontWeight:"700",
-    },
-    cardrow:{
-        flexDirection:'row',
-        marginBottom:28,
-        marginTop:28,
-    },
-    buttonrow:{
-        flexDirection:'row',
-        marginTop:22,
-    },
-    daycard:{
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.30,
-        shadowRadius: 11.95,
-        borderRadius:20,
 
-        elevation: 8,
-    },
-    cardstyle:{
-        marginLeft:12,
-        marginRight:12,
-        marginTop:12,
-        flexDirection:'row',
-      },
-      daycardtext:{
-        color:'rgb(54,118,203)',
-        fontSize:22,
-      },
-      buttontext:{
-        color:'rgb(54,118,203)',
-        fontSize:18,
-        marginTop:12,
-      },
-      cardbutton:{
-        alignItems:'center',
-        width:'40%',
-        margin:10,
-        justifyContent:'center',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 9,
-        },
-        shadowOpacity: 0.48,
-        shadowRadius: 11.95,
-        borderRadius:20,
-        elevation: 18,
-      },
-      buttoncardcontent:{
-        marginTop:12,
-        marginBottom:12
-      }
-})
