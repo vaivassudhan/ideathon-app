@@ -45,11 +45,12 @@ const App = () => {
     colors: {
       ...NavigationDefaultTheme.colors,
       ...PaperDefaultTheme.colors,
-      background: '#efefef',
+      background: '#fff4e4',
       text: '#000000',
       text_secondary:'3c3c3c',
-      accent1:'#b2b9ff',
-      accent2:'#eee3df',
+      accent0:'#e1d5c9',
+      accent1:'#eee3d8',
+      accent2:'#b2b9ff',
       accent3:'#f6a499',
       backcard:'#ffffff'
     }
@@ -61,10 +62,11 @@ const App = () => {
     colors: {
       ...NavigationDarkTheme.colors,
       ...PaperDarkTheme.colors,
-      background: '#1B0536',
+      background: '#140536',
       text: '#ecc1f4',
       text_secondary:'#fe167c',
-      accent1:'#3D225D',
+      accent0:'#120631',
+      accent1:'#35225D',
       accent2:'#260f41',
       accent3:'#3ccbf4',
       backcard:'#3D225D'
