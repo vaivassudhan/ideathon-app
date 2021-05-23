@@ -1,8 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet, Text, View ,Button , ActivityIndicator} from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, DefaultTheme as NavigationDefaultTheme,
   DarkTheme as NavigationDarkTheme } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -19,10 +17,7 @@ import Symptoms from './Screens/Symptoms';
 import Breathing from './Screens/Breathing';
 import Report from './Screens/Report';
 import Goals from './Screens/Goals';
-import Symco from './Components/Symtomscom/Symco';
-
-
-const Stack = createStackNavigator();
+import Symco from './Components/Symptomscom/Symco';
 const Drawer = createDrawerNavigator();
 import MainTabScreen from './Components/BottomTabNavigation/MainTabScreen';
 import { enableScreens } from 'react-native-screens';
@@ -45,13 +40,13 @@ const App = () => {
     colors: {
       ...NavigationDefaultTheme.colors,
       ...PaperDefaultTheme.colors,
-      background: '#fff4e4',
+      background: '#ffffff',
       text: '#000000',
       text_secondary:'3c3c3c',
-      accent0:'#e1d5c9',
-      accent1:'#eee3d8',
-      accent2:'#b2b9ff',
-      accent3:'#f6a499',
+      accent0:'#3880ff',
+      accent1:'#3dc2ff',
+      accent2:'#5260ff',
+      accent3:'#f6a409',
       backcard:'#ffffff'
     }
   }
@@ -62,18 +57,18 @@ const App = () => {
     colors: {
       ...NavigationDarkTheme.colors,
       ...PaperDarkTheme.colors,
-      background: '#140536',
-      text: '#ecc1f4',
-      text_secondary:'#fe167c',
-      accent0:'#120631',
-      accent1:'#35225D',
-      accent2:'#260f41',
-      accent3:'#3ccbf4',
+      background: '#040631',
+      text: '#fff',
+      text_secondary:'#ddd',
+      accent0:'#040631',
+      accent1:'#343661',
+      accent2:'#0a0f41',
+      accent3:'#3880ff',
       backcard:'#3D225D'
     }
   }
 
-  const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
+  const theme = isDarkTheme ? CustomDefaultTheme : CustomDarkTheme;
 
   const loginReducer = (prevState, action) => {
     switch( action.type ) {
@@ -126,8 +121,8 @@ const App = () => {
 
     AddSelectedList:async(selected)=>{
       try {
-        await AsyncStorage.setItem('Symtoms', selected );
-        userSymptoms = await AsyncStorage.getItem('Symtoms');
+        await AsyncStorage.setItem('Symptoms', selected );
+        userSymptoms = await AsyncStorage.getItem('Symptoms');
         console.log("ghfhhgfhfh",userSymptoms)
       }catch(e){
         console.log(e); 
@@ -145,10 +140,10 @@ const App = () => {
         await AsyncStorage.setItem('PhoneNumber', dic.PhoneNumber);
         await AsyncStorage.setItem('Date', dic.Date);
         await AsyncStorage.setItem('Time', dic.Time);
-        await AsyncStorage.setItem('Symtoms', dic.Symtoms);
+        await AsyncStorage.setItem('Symptoms', dic.Symptoms);
         await AsyncStorage.setItem('Location', dic.Location);
 
-        userSymptoms = await AsyncStorage.getItem('Symtoms');
+        userSymptoms = await AsyncStorage.getItem('Symptoms');
 
         console.log("dsfhggfhj",userSymptoms)
         // await AsyncStorage.setItem('Email',foundUser.userEmail);
@@ -168,7 +163,7 @@ const App = () => {
         await AsyncStorage.removeItem('PhoneNumber');
         await AsyncStorage.removeItem('Date');
         await AsyncStorage.removeItem('Time');
-        await AsyncStorage.removeItem('Symtoms');
+        await AsyncStorage.removeItem('Symptoms');
         await AsyncStorage.removeItem('Location');
         
       } catch(e) {
@@ -201,7 +196,7 @@ const App = () => {
         userPhoneNumber = await AsyncStorage.getItem('PhoneNumber');
         userDate = await AsyncStorage.getItem('Date');
         userTime = await AsyncStorage.getItem('Time');
-        userSymptoms = await AsyncStorage.getItem('Symtoms');
+        userSymptoms = await AsyncStorage.getItem('Symptoms');
         userLocation = await AsyncStorage.getItem('Location');
         
         console.log("App.js:",userTime)

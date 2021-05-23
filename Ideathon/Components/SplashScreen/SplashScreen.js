@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-paper';
 import * as Animatable from 'react-native-animatable';
+
+import Ion from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from '@react-navigation/native';
@@ -21,58 +23,47 @@ const SplashScreen = ({navigation}) => {
 
     return (
       <View style={styles.container}>
-          <StatusBar backgroundColor='#a6ddff' barStyle="light-content"/>
+          <StatusBar backgroundColor={colors.accent0} barStyle="light-content"/>
         <View style={styles.header}>
             <Animatable.Image 
                 animation="bounceIn"
                 duraton="1500"
-            source={require('../../assets/cc.png')}
+            source={require('../../assets/VHAS.png')}
             style={styles.logo}
             resizeMode="stretch"
             />
         </View>
         <Animatable.View 
             style={[styles.footer, {
-                backgroundColor: 'rgb(54,118,203)'
+                backgroundColor: '#3880ff'
             }]}
             animation="fadeInUpBig"
+            onPress={()=>navigation.navigate('Slide')}
         >
             <Text style={[styles.title, {
                 color: 'white'
-            }]}>Home Quarantine Assistance</Text>
+            }]}>Virtual Health Assistant</Text>
             <Text style={styles.text} >for a better tomorrow</Text>
             <View style={styles.button}>
-            {/* <TouchableOpacity onPress={()=>navigation.navigate('Slide')}>
-                <Button style={{backgroundColor:'rgb(34,88,163)'}} mode="contained">
-                    Get Started
-                </Button> */}
-                
-                {/* <LinearGradient
-                    colors={['#c53d34', '#c53d34']}
-                    style={styles.signIn}
-                >
-                    <Text style={styles.textSign}>Get Started</Text>
-                    <MaterialIcons 
-                        name="navigate-next"
-                        color="#fff"
-                        size={20}
-                    />
-                </LinearGradient> */}
-            {/* </TouchableOpacity> */}
             <TouchableOpacity
             style={{
                 borderWidth:1,
                 borderColor:'rgba(0,0,0,0.2)',
                 alignItems:'center',
                 justifyContent:'center',
-                width:150,
+                marginTop:'10%',
+                width:50,
                 height:50,
                 backgroundColor:'rgb(34,88,163)',
-                borderRadius:25,
+                borderRadius:30,
                 }}
                 onPress={()=>navigation.navigate('Slide')}
             >
-             <Text style={styles.textSign}>Get Started</Text>
+             <Text style={styles.textSign}><Ion
+          name="md-arrow-forward-sharp"
+          color="rgba(255, 255, 255, .9)"
+          size={20}
+        /></Text>
             
             </TouchableOpacity>
             </View>
@@ -88,11 +79,11 @@ const height_logo = height * 0.28;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    // backgroundColor: '#a6ddff'
+    flex: 1,
+    backgroundColor:'#040631'
   },
   header: {
-      flex: 2,
+      flex: 4,
       justifyContent: 'center',
       alignItems: 'center'
   },
@@ -102,7 +93,7 @@ const styles = StyleSheet.create({
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
       paddingVertical: 50,
-      paddingHorizontal: 30
+      paddingHorizontal: 30,
   },
   logo: {
       width: height_logo,

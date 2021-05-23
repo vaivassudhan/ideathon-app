@@ -17,6 +17,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import { useTheme ,RadioButton, Button,} from 'react-native-paper';
 import { AuthContext } from '../context';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 const RegisteForm = ({navigation}) => {
@@ -137,7 +138,7 @@ const RegisteForm = ({navigation}) => {
                 PhoneNumber:PhoneNumber,
                 Date:date,
                 Time:time,
-                Symtoms:JSON.stringify(dem),
+                Symptoms:JSON.stringify(dem),
                 Location:location
             }
             console.log(dic)
@@ -259,7 +260,7 @@ const RegisteForm = ({navigation}) => {
         source={require('../../assets/dem1.jpg')} 
         style={{width:undefined, padding:16, paddingTop:48, height:250}}
         >
-          <StatusBar backgroundColor='rgb(54,118,203)' barStyle="light-content"/>
+          <StatusBar backgroundColor={colors.accent0} barStyle="light-content"/>
         <View style={styles.header}>
             <Text style={styles.text_header}>Welcome!</Text>
         </View>
@@ -350,10 +351,10 @@ const RegisteForm = ({navigation}) => {
             </View>
                 <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
                 <View style={{flexDirection:'row'}}>
-                    <RadioButton value="Male" color='rgb(34,88,163)'/>
-                    <Text style={{marginTop:10,marginRight:8}}>Male</Text>
-                    <RadioButton value="Female" color='rgb(34,88,163)'/>
-                    <Text style={{marginTop:10}}>Female</Text>       
+                    <RadioButton value="Male" color={colors.text}/>
+                    <Text style={{marginTop:8,marginRight:8,color:colors.text}}>Male</Text>
+                    <RadioButton value="Female" color={colors.text}/>
+                    <Text style={{marginTop:8,color:colors.text}}>Female</Text>       
                 </View>
                 </RadioButton.Group>
                 {/* <TextInput 

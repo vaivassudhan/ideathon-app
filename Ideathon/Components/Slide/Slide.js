@@ -17,21 +17,15 @@ import Ion from 'react-native-vector-icons/Ionicons';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import * as Animatable from 'react-native-animatable';
 import { LinearGradient } from 'expo-linear-gradient';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Feather from 'react-native-vector-icons/Feather';
-import * as Notifications from 'expo-notifications'
-import * as Permissions from 'expo-permissions';
-import Constants from 'expo-constants';
-import { useTheme } from 'react-native-paper';
 
 const slides = [
     {
       key: 'one',
-      title: 'Welcome to CoviCare',
-      text: 'Your Home Quarantine Assistant',
+      title: 'Welcome to VHAS',
+      text: 'Your Virtual Health Assistant',
       image: require('../../assets/415.jpg'),
-      backgroundColor: 'rgb(255, 255, 255)',
-      backgroundColor1: 'rgb(255,255,255)',
+      backgroundColor: '#040631',
+      backgroundColor1: '#040631',
       
     },
     {
@@ -39,16 +33,16 @@ const slides = [
       title: 'Symptoms ',
       text: 'Remedies for your symptoms at one place',
       image: require('../../assets/report.jpg'),
-      backgroundColor: 'rgb(250, 250, 250)',
-      backgroundColor1: 'rgb(250,250,250)',
+      backgroundColor: '#040631',
+      backgroundColor1: '#040631',
     },
     {
       key: 'three',
       title: 'Report',
       text: 'Monitor your report anytime',
       image: require('../../assets/history.jpg'),
-      backgroundColor: 'rgb(255, 255, 255)',
-      backgroundColor1: 'rgb(255,255,255)',
+      backgroundColor: '#040631',
+      backgroundColor1: '#040631',
     }
   ];
 
@@ -139,19 +133,19 @@ const styles = StyleSheet.create({
     // marginVertical: 32,
   },
   text: {
-    color: 'rgba(34,88,163, 0.8)',
+    color: '#FFF',
     textAlign: 'center',
   },
   title: {
     fontSize: 22,
-    color: 'rgb(34,88,163)',
+    color: '#FFF',
     textAlign: 'center',
   },
   buttonCircle: {
-    width: 40,
-    height: 40,
-    backgroundColor: 'rgba(0, 0, 0, .2)',
-    borderRadius: 20,
+    width: 50,
+    height: 50,
+    backgroundColor: '#3880ff',
+    borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },

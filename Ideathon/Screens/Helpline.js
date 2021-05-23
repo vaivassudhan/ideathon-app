@@ -66,7 +66,7 @@ const styles=StyleSheet.create({
         marginTop:8,
     },
     number:{
-        color:'rgb(54,118,203)',
+        color:'#fff',
         fontSize:20,
         fontWeight:'400',
         marginTop:0,
@@ -78,7 +78,7 @@ const styles=StyleSheet.create({
         width:25,
         marginLeft:10,
         marginBottom:12,
-        color:'rgb(54,118,203)'
+        color:'#fff'
     },
     card: {
         marginLeft:"8%",
@@ -86,6 +86,7 @@ const styles=StyleSheet.create({
             width: '85%',
             marginTop:8,
             marginBottom:2,
+            backgroundColor:'#343661',
             flexDirection:'row',
             shadowColor: "#000",
             shadowOffset: {
@@ -101,7 +102,7 @@ const styles=StyleSheet.create({
       title:{
         fontWeight: 'bold',
         marginRight:20,
-        color:'rgb(52,125,247)'
+        color:'#fff'
       },
         paragraph: {
           margin: 2,
@@ -116,7 +117,7 @@ const styles=StyleSheet.create({
           padding:10
         },
         text_header: {
-            color: '#34495e',
+            color: '#fff',
             fontWeight: 'bold',
             fontSize: 20,
             textAlign:'center',

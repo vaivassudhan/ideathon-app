@@ -34,12 +34,12 @@ export default class Symptoms extends React.Component {
  
     return (
       <View styles={styles.container}>
-                <View style={{backgroundColor:'rgb(54,118,203)'}}>
+                <View style={{backgroundColor:'#3880ff'}}>
                     <StatusBar
                     animated={true}
-                    backgroundColor="rgb(54,118,203)"/>
+                    backgroundColor="#040631"/>
                     <SafeAreaView>
-                    <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="rgb(54,118,203)" onPress={() => this.props.navigation.navigate('Home')}> Back</Icon.Button>   
+                    <Icon.Button name="arrow-back-sharp" size={25} backgroundColor="#343661" onPress={() => this.props.navigation.navigate('Home')}> Back</Icon.Button>   
                     </SafeAreaView>
                 </View>
                 <View>
@@ -50,8 +50,10 @@ export default class Symptoms extends React.Component {
                     <TagSelect
                       theme="info"
                         data={data}
-                        itemStyle={styles.customItem}
-                    
+                        itemStyle={styles.item}
+                        itemLabelStyle={styles.label}
+                        itemStyleSelected={styles.itemSelected}
+                        itemLabelStyleSelected={styles.labelSelected}
                         ref={(tag) => {
                               this.tag = tag;
                         }}
@@ -59,7 +61,7 @@ export default class Symptoms extends React.Component {
                       </View>
                 </View>
                 <View style={{alignSelf:'flex-end'}}>
-                <Button style={[styles.nextbutton,{backgroundColor:'rgb(51,124,247)', marginRight:20, marginTop:'40%'}]} mode="contained" onPress={() => this.props.navigation.navigate('Symco',{selected:JSON.stringify(this.tag.itemsSelected)})}>
+                <Button style={[styles.nextbutton,{backgroundColor:'#3880ff', marginRight:20, marginTop:'40%'}]} mode="contained" onPress={() => this.props.navigation.navigate('Symco',{selected:JSON.stringify(this.tag.itemsSelected)})}>
                         Next
                 </Button>
                 </View>
@@ -82,8 +84,8 @@ const styles= StyleSheet.create({
       margin: 10,
       marginTop: 30,
       fontSize:18,
-      alignSelf:'center'
-      
+      alignSelf:'center',
+      color:'#fff'
     },
     symptom_list:{
       marginTop:30,
@@ -97,6 +99,23 @@ const styles= StyleSheet.create({
       top:50,
       // bottom:0,
       right:20,
-    }
+    },
+    item:{
+      borderColor: '#3880ff',
+      backgroundColor:'#343661',
+      margin:5,
+    },
+    label:{
+      color:'#fff',
+      fontSize:16,
+      fontWeight:'600'
+    },
+    itemSelected:{
+      borderColor: '#343661',
+      backgroundColor:'#3380ff'
+    },
+    labelSelected:{
+      color:'#fff'
+    },
  
 })

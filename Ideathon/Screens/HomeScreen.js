@@ -88,7 +88,7 @@ export function Home({navigation}){
             },
             shadowOpacity: 0.48,
             shadowRadius: 11.95,
-            borderRadius:20,
+            borderRadius:25,
             elevation: 18,
           },
           buttoncardcontent:{
@@ -116,7 +116,7 @@ export function Home({navigation}){
           setName(userName)
           setGender(userGender)
           setDate(userDate)
-          global.userSymtoms = await AsyncStorage.getItem('Symtoms');
+          global.userSymptoms = await AsyncStorage.getItem('Symptoms');
           
         } catch(e) {
           console.log(e);
@@ -125,7 +125,7 @@ export function Home({navigation}){
 
     const report =() =>{
         count=count+1;
-        navigation.navigate('Report',{symptoms:JSON.stringify(userSymtoms),count:count})
+        navigation.navigate('Report',{symptoms:JSON.stringify(userSymptoms),count:count})
     }
 
     const checkDate = ()=>{
@@ -202,7 +202,7 @@ export function Home({navigation}){
                     <TouchableOpacity onPress={() =>{navigation.navigate('Breathing')}} >
                         <Card.Content style={styles.buttoncardcontent}>
                             <Image style={{width:50,height:50,alignSelf:'center'}} source={require('../assets/heart.png')}/>
-                            <Text style={styles.buttontext}>Breathing </Text>
+                            <Text style={styles.buttontext}>Exercise </Text>
                         </Card.Content>
                         </TouchableOpacity>
                     </Card>

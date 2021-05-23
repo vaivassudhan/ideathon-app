@@ -24,11 +24,127 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { Avatar, Button, Card, Title, Paragraph, Divider } from 'react-native-paper';
 import { AuthContext } from '../Components/context';
 export function Profile({navigation}) {
-
-
+  
+  const { colors } = useTheme();
+  const styles = StyleSheet.create({
+    card: {
+        marginLeft:12,
+            marginRight:12,
+            width: '93%',
+            marginTop:40,
+            marginBottom:2,
+            flexDirection:'row',
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 4,
+            },
+            shadowOpacity: 0.30,
+            shadowRadius: 11.95,
+            borderRadius:20,
+            backgroundColor:colors.accent1,
+            elevation: 8,
+      },
+      action_radio: {
+        flexDirection: 'row',
+        marginTop: 10,
+        paddingBottom: 5
+    },
+      footer: {
+        flex: 3,
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        paddingHorizontal: 20,
+        paddingVertical: 30
+    },
+      modalText: {
+        paddingTop:10,
+        marginBottom: -1,
+        fontSize : 16,
+        height: 60,
+        borderBottomColor : '#000000',
+        borderBottomWidth : 1,
+        width : 300,
+        textAlign : 'left'
+        
+      },
+      textInput: {
+        marginTop: Platform.OS === 'ios' ? 0 : -5,
+        paddingLeft: 10,
+        borderBottomColor : '#000000',
+        width : 300,
+        textAlign : 'left',
+        color: '#fff',
+    },
+      card_rej: {
+        alignContent:'center',
+        margin: 16,
+        marginTop:15,
+        backgroundColor:colors.accent1,
+        borderRadius:25,
+        marginBottom:15,
+        width:'93%',
+        elevation: 6,
+      },
+      title_Modal:{
+        fontWeight: 'bold',
+        marginRight:20,
+        color:colors.text,
+        paddingBottom:20
+      },
+      centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22,
+      },
+      title:{
+        fontWeight: 'bold',
+        marginRight:20,
+        color:colors.text
+      },
+      title_other:{
+        fontWeight: 'bold',
+        marginRight:20,
+        marginBottom:"20%",
+        color:colors.text
+      },
+        paragraph: {
+          margin: 2,
+          fontSize: 25,
+          fontWeight: 'bold',
+          textAlign: 'center',
+        //color: '#34495e',
+    
+        },
+  
+        cardText:{
+          fontSize:30,
+          padding:10
+        },
+        action: {
+          flexDirection: 'row',
+          marginTop: 10,
+          borderBottomWidth: 1,
+          borderBottomColor: '#f2f2f2',
+      },
+        text_header: {
+            color: '#34495e',
+            fontWeight: 'bold',
+            fontSize: 20,
+            textAlign:'center',
+            marginTop:12,
+          },
+          title_nodata:{
+            fontWeight: 'bold',
+            textAlign:'center',
+          },
+    });
+  
   const [Second,setCurrentSecond]=useState('')
-
-
+  
+  
   useEffect(() => {
       checkDate();
   }, [])
@@ -52,7 +168,6 @@ export function Profile({navigation}) {
 }
 
   const [modalVisible,setModalVisible]=useState(false)
-  const { colors } = useTheme();
 
   const [Show ,Setshow]=useState(false)
   const { update } = React.useContext(AuthContext);
@@ -211,10 +326,10 @@ export function Profile({navigation}) {
             </View>
                 <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
                 <View style={{flexDirection:'row'}}>
-                    <RadioButton value="Male" color='rgb(34,88,163)'/>
-                    <Text style={{marginTop:10,marginRight:8}}>Male</Text>
-                    <RadioButton value="Female" color='rgb(34,88,163)'/>
-                    <Text style={{marginTop:10}}>Female</Text>       
+                    <RadioButton value="Male" />
+                    <Text style={{marginTop:10,marginRight:8,color:colors.text}}>Male</Text>
+                    <RadioButton value="Female" />
+                    <Text style={{marginTop:10,color:colors.text}}>Female</Text>       
                 </View>
                 </RadioButton.Group>
 
@@ -222,7 +337,7 @@ export function Profile({navigation}) {
                </Card.Content>
                <Divider/>
                    <Card.Actions >
-                     <Button color={'rgb(54,118,203)'} onPress={()=>{contin()}}>Update</Button>
+                     <Button color={colors.accent3} textAlign="center" onPress={()=>{contin()}}>Update</Button>
                    </Card.Actions>
                  </Card>
             
@@ -237,8 +352,8 @@ export function Profile({navigation}) {
                 seconds={1209600}
                 radius={140}
                 borderWidth={25}
-                color="rgb(97,212,203)"
-                bgColor="#fff"
+                color="rgb(67,203,203)"
+                bgColor="#11ffff"
                 shadowColor="rgb(54,118,203)"
                 textStyle={{ fontSize: 70 ,marginLeft:-20}}
                 onTimeElapsed={() => navigation.navigate("Home")}
@@ -248,7 +363,7 @@ export function Profile({navigation}) {
                     title={<Title  style={styles.title}>  
                 <FontAwesome 
                     name="user"
-                    color='rgb(54,118,203)'
+                    color={colors.text}
                     size={20}
                 />    Name : {userName}</Title>} 
                 right={()=>
@@ -271,7 +386,7 @@ export function Profile({navigation}) {
                     title={<Title  style={styles.title_other}>  
                 <FontAwesome 
                     name="child"
-                    color='rgb(54,118,203)'
+                    color={colors.text}
                     size={20}
                 />    Age : {userAge}</Title>}
                     />
@@ -279,7 +394,7 @@ export function Profile({navigation}) {
                     title={<Title  style={styles.title}>  
                 <FontAwesome 
                     name="venus-mars"
-                    color='rgb(54,118,203)'
+                    color={colors.text}
                     size={20}
                 />  Gender : {userGender}</Title>}
                     />
@@ -290,118 +405,3 @@ export function Profile({navigation}) {
     }
 
 export default Profile
-const styles = StyleSheet.create({
-  card: {
-      marginLeft:12,
-          marginRight:12,
-          width: '93%',
-          marginTop:40,
-          marginBottom:2,
-          flexDirection:'row',
-          shadowColor: "#000",
-          shadowOffset: {
-              width: 0,
-              height: 4,
-          },
-          shadowOpacity: 0.30,
-          shadowRadius: 11.95,
-          borderRadius:20,
-  
-          elevation: 8,
-    },
-    action_radio: {
-      flexDirection: 'row',
-      marginTop: 10,
-      paddingBottom: 5
-  },
-    footer: {
-      flex: 3,
-      backgroundColor: '#fff',
-      borderTopLeftRadius: 30,
-      borderTopRightRadius: 30,
-      paddingHorizontal: 20,
-      paddingVertical: 30
-  },
-    modalText: {
-      paddingTop:10,
-      marginBottom: -1,
-      fontSize : 16,
-      height: 60,
-      borderBottomColor : '#000000',
-      borderBottomWidth : 1,
-      width : 300,
-      textAlign : 'left'
-      
-    },
-    textInput: {
-      marginTop: Platform.OS === 'ios' ? 0 : -5,
-      paddingLeft: 10,
-      borderBottomColor : '#000000',
-      width : 300,
-      textAlign : 'left',
-      color: '#05375a',
-  },
-    card_rej: {
-      alignContent:'center',
-      margin: 16,
-      marginTop:15,
-      backgroundColor:'#fff',
-      borderRadius:12,
-      marginBottom:15,
-      width:'93%',
-      elevation: 6,
-    },
-    title_Modal:{
-      fontWeight: 'bold',
-      marginRight:20,
-      color:'rgb(54,118,203)',
-      paddingBottom:20
-    },
-    centeredView: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      marginTop: 22,
-    },
-    title:{
-      fontWeight: 'bold',
-      marginRight:20,
-      color:'rgb(54,118,203)'
-    },
-    title_other:{
-      fontWeight: 'bold',
-      marginRight:20,
-      marginBottom:"20%",
-      color:'rgb(54,118,203)'
-    },
-      paragraph: {
-        margin: 2,
-        fontSize: 25,
-        fontWeight: 'bold',
-        textAlign: 'center',
-      //color: '#34495e',
-  
-      },
-
-      cardText:{
-        fontSize:30,
-        padding:10
-      },
-      action: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
-    },
-      text_header: {
-          color: '#34495e',
-          fontWeight: 'bold',
-          fontSize: 20,
-          textAlign:'center',
-          marginTop:12,
-        },
-        title_nodata:{
-          fontWeight: 'bold',
-          textAlign:'center',
-        },
-  });
